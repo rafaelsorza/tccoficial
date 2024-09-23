@@ -1,0 +1,375 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter" , sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+  
+  }
+  
+  .hero-section {
+    text-align: center;
+    padding: 60px 20px;
+    margin-bottom: 10vh;
+    height: 70vh;
+    z-index: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Corrigido de 'left' para 'flex-start' */
+    width: 100%;
+    top: 0;
+    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura total */
+  }
+  
+  /* Estilos para o botão de início */
+  .botao-inicio {
+    background-color: #7DCD9A;
+    color: white;
+    font-size: 2.6vh;
+    font-weight: bold;
+    width: 15vh;
+    padding: 10px;
+    border-radius: 10vh;
+    margin-left: 10vh;
+    border: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Estilos para o título */
+  .title {
+    font-size: 8vh;
+    text-align: left;
+    margin-left: 10vh;
+    max-width: 70vh;
+    box-sizing: border-box;
+  }
+  
+  /* Estilos para o subtítulo */
+  .subtitle {
+    font-size: 3vh;
+    margin-left: 10vh;
+    text-align: left;
+    max-width: 70vh;
+    box-sizing: border-box;
+  }
+  
+  /* Container de título */
+  .title-container {
+    text-align: center;
+  }
+  
+  /* Container de cards */
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1vh; /* Espaçamento entre os cards */
+    margin-left: 15vh;
+    margin-right: 15vh;
+    margin-bottom: 20vh;
+    box-sizing: border-box;
+  }
+  
+  /* Estilos para o card */
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 55vh; /* Ajuste a largura conforme necessário */
+    height: 50vh;
+    box-sizing: border-box; /* Para incluir padding e border no cálculo da largura */
+  }
+  
+  .card-image {
+    width: 25vh;
+    height: 25vh;
+  }
+  
+  /* Título do card */
+  .card-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  /* Descrição do card */
+  .card-description {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  /* Seção de informações */
+  .info-section {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20vh;
+    box-sizing: border-box;
+  }
+  
+  /* Card de informações */
+  .info-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 30%;
+    box-sizing: border-box;
+  }
+  
+  /* Estilos para a imagem do card de informações */
+  .info-card img {
+    width: 50vh;
+    height: 50vh;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+  
+  /* Seção de serviços */
+  .services-section {
+    background: #F4F9FF;
+    padding: 40px 20px;
+    text-align: center;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+  }
+  
+  /* Detalhes dos serviços */
+  .service-details {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  /* Estilos para a imagem dos detalhes dos serviços */
+  .service-details img {
+    width: 150px;
+    border-radius: 10px;
+    margin-right: 20px;
+  }
+  
+  /* Informações dos serviços */
+  .service-info {
+    text-align: left;
+  }
+  
+  .service-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Botão de aprender mais */
+  .learn-more-button {
+    background-color: #47AC5D;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Seção de especialidades */
+  .speciality-section {
+    text-align: center;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+  }
+  
+  /* Detalhes das especialidades */
+  .speciality-details {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  /* Estilos para a imagem dos detalhes das especialidades */
+  .speciality-details img {
+    width: 150px;
+    border-radius: 10px;
+    margin-right: 20px;
+  }
+  
+  /* Informações das especialidades */
+  .speciality-info {
+    text-align: left;
+  }
+  
+  .speciality-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .speciality-info p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  
+  .texto-imagem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Rodapé */
+  .footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #ccc;
+    background-color: #7DCD9A;
+    color: white;
+    font-weight: bold;
+    box-sizing: border-box;
+  }
+  
+  .footer-info {
+    text-decoration: none;
+  }
+  
+  .footer-info a {
+    text-decoration: none;
+    color: #FFFFFF;
+  }
+  
+  /* Meio círculo */
+  .half-circle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 90%;
+    background: #7DCD9A;
+    border-top-left-radius: 100%;
+    border-bottom-left-radius: 100%;
+    z-index: 0; /* Garante que o meio círculo fique abaixo da barra de navegação */
+  }
+  
+  /* Imagem sobreposta */
+  .overlay-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%; /* Ajuste a largura conforme necessário */
+    z-index: 1; /* Garante que a imagem fique acima do meio círculo */
+    margin: 20px; /* Ajuste a margem conforme necessário para posicionar a imagem */
+  }
+  
+  /* Media queries para responsividade */
+  @media (max-width: 1200px) {
+    .cards-container {
+      margin-left: 10vh;
+      margin-right: 10vh;
+    }
+  
+    .card {
+      width: 50vh;
+      height: auto;
+    }
+  
+    .info-card img {
+      width: 40vh;
+      height: 40vh;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .hero-section {
+      align-items: center;
+    }
+  
+    .botao-inicio {
+      margin-left: 0;
+    }
+  
+    .title, .subtitle {
+      margin-left: 0;
+      text-align: center;
+    }
+  
+    .cards-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .card {
+      width: 70vh;
+    }
+  
+    .info-card {
+      width: 70%;
+    }
+  
+    .info-card img {
+      width: 30vh;
+      height: 30vh;
+    }
+  
+    .service-details, .speciality-details, .appointment-details {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .service-details img, .speciality-details img, .appointment-details img {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  
+    .service-info, .speciality-info, .appointment-info {
+      text-align: center;
+    }
+  
+    .doctor-cards {
+      flex-direction: column;
+    }
+  
+    .doctor-card {
+      width: 80%;
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .cards-container {
+      margin-left: 5vh;
+      margin-right: 5vh;
+    }
+  
+    .card {
+      width: 90%;
+    }
+  
+    .info-card img {
+      width: 25vh;
+      height: 25vh;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .hero-section {
+      padding: 40px 10px;
+    }
+  
+    .title, .subtitle {
+      font-size: 4vh;
+    }
+  
+    .cards-container {
+      margin-left: 2vh;
+      margin-right: 2vh;
+    }
+  
+    .info-card img {
+      width: 20vh;
+      height: 20vh;
+    }
+  }
+  
+  /* Evita overflow horizontal */
+  body {
+    overflow-x: hidden;
+  }
