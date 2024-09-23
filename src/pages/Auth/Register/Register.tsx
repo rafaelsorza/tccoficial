@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import './Register.css'
 import { Link, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, updateProfile, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import { auth, db } from './firebase-config';
+import { auth, db } from '../Login/firebase-config';
 import { doc, setDoc } from 'firebase/firestore';
+
 
 const Registro: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [confirmPassword, setConfirmPassword] = useState<string>('');
   const [name, setName] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
@@ -15,7 +18,7 @@ const Registro: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!name || !email || !password) {
+    if (!name || !email || !password || !confirmPassword ) {
       setError('Todos os campos precisam ser preenchidos.');
       return;
     }
@@ -58,8 +61,13 @@ const Registro: React.FC = () => {
   };
 
   return (
-    <div className="form-container">
-      <h2>Registrar</h2>
+    <div className='content'>
+
+
+
+  
+    
+      <h2> Bem-vindo ao Vitality Vision! </h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -83,8 +91,16 @@ const Registro: React.FC = () => {
           required
         />
 
+        <input
+          type="password"
+          placeholder="Confirmar Senha"
+          value={confirmPassword}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+
         {error && <p className="error-message">{error}</p>}
-        <button type="submit">Registrar</button>
+        <button type="submit"> Cadastrar </button>
       </form>
 
       <p>Ou</p>
@@ -95,7 +111,8 @@ const Registro: React.FC = () => {
       </button>
 
       <Link to="/login">Já tem uma conta? Entrar</Link>
-    </div>
+    </div> 
+ 
   );
 };
 

@@ -1,0 +1,51 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    height: 10vh;
+    background-color: transparent;
+    z-index: 2;
+    position: relative;
+    
+}
+
+.navbar-brand {
+    margin-left: 7.5vh;
+}
+
+.navbar-buttons {
+    margin-right: 2vh;
+    display: flex;
+    justify-content: space-between;
+    width: 12%;
+    gap: 10px;
+   
+}
+
+.loginbtn {
+    background-color: transparent;
+    font-weight: bold;
+    color: #000000;
+display:flex ;
+    border-radius: 2vh;
+    border: 2px solid black;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    width: 12vh;
+
+}
+
+.registrobtn {
+    background-color: transparent;
+    border: 2px solid rgb(0, 0, 0);
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+   display: flex; 
+    border-radius: 2vh;
+    text-decoration: none;
+    width: 17vh;
+    align-items: center;
+    justify-content: center;
+}
