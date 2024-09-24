@@ -4,12 +4,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, updateProfile, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { auth, db } from '../Login/firebase-config';
 import { doc, setDoc } from 'firebase/firestore';
+import { FaGoogle } from 'react-icons/fa';
 
 
 const Registro: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [confirmPassword, setConfirmPassword] = useState<string>('');
   const [name, setName] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ const Registro: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!name || !email || !password || !confirmPassword ) {
+    if (!name || !email || !password) {
       setError('Todos os campos precisam ser preenchidos.');
       return;
     }
@@ -61,13 +61,20 @@ const Registro: React.FC = () => {
   };
 
   return (
-    <div className='content'>
+    <div className="register-page">
+       <div className="logo">
+        <img src="logo.png"  width={"35vh"} height={"35vh"}/>
+    </div>
 
+       <div className="register-container"> 
+         <div className="image-container">
+          <img src="/registro.jfif"/>
+      
+        </div>
 
-
-  
-    
-      <h2> Bem-vindo ao Vitality Vision! </h2>
+ <div className="form-container">
+          <h1>Bem-vindo ao Vitality Vision!</h1>
+          <p>Acompanhe sua saúde de uma maneira rápida e eficiente.</p>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -90,29 +97,35 @@ const Registro: React.FC = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
+         {error && <p className="error-message">{error}</p>}
+        <button type="submit" className='register-button'> Cadastrar </button>
+         </form>
 
-        <input
-          type="password"
-          placeholder="Confirmar Senha"
-          value={confirmPassword}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
 
-        {error && <p className="error-message">{error}</p>}
-        <button type="submit"> Cadastrar </button>
-      </form>
 
-      <p>Ou</p>
+  <div className="divider">
+            <span>ou continue com</span>
+          </div>
 
-      {/* Botão para login com Google */}
-      <button onClick={handleGoogleSignIn} className="google-button">
-        Entrar com Google
-      </button>
+          <div className="social-login">
+             <button className="social-button google" onClick={handleGoogleSignIn}> <FaGoogle/> </button>
+            
+          </div>
 
-      <Link to="/login">Já tem uma conta? Entrar</Link>
-    </div> 
- 
+          <p className="register-link">
+            Já tem uma conta? <Link to="/login"> Entrar </Link>
+          </p>
+        </div>
+       
+     
+
+     
+
+    
+</div>
+  
+      </div>
+   
   );
 };
 

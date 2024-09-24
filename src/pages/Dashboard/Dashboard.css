@@ -1,0 +1,106 @@
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+/* Estilos da Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid #e5e5e5;
+}
+
+.sidebar-header {
+  padding: 20px;
+  text-align: center;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-nav li {
+  padding: 15px 20px;
+  cursor: pointer;
+  color: #333;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.sidebar-nav li:hover {
+  background-color: #f0f0f0;
+}
+
+.sidebar-support {
+  padding: 20px;
+  text-align: center;
+}
+
+.support-btn {
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Estilos para o conteúdo principal */
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.welcome-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.welcome-card {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-card {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.content-section {
+  display: flex;
+  gap: 20px;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}

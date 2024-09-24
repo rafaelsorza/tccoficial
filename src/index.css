@@ -1,17 +1,10 @@
 body {
-  margin: 0;
-  padding: 0;
   font-family: "Inter" , sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
 }
 
-.content-container {
-  flex: 1;
-  padding: 20px;
-  margin-left: 200px; /* Para dar espaço para a barra lateral fixa */
-}
 
 button {
   font-family: "Inter" , sans-serif;

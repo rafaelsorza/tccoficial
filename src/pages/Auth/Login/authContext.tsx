@@ -1,38 +1,44 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { getAuth, onAuthStateChanged, User } from "firebase/auth";
+import React from 'react';
+import { useAuth } from '../../../main'
+import { getAuth } from "firebase/auth";
+import { useNavigate, Link } from 'react-router-dom';
 
-interface AuthContextType {
-  currentUser: User | null;
-}
+export const UserButton: React.FC = () => {
+  const { currentUser } = useAuth();
+  const navigate = useNavigate();
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
-
-export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error("useAuth must be used within an AuthProvider");
-  }
-  return context;
-};
-
-interface AuthProviderProps {
-  children: ReactNode;
-}
-
-export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState<User | null>(null);
-
-  useEffect(() => {
-    const auth = getAuth();
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setCurrentUser(user);
-    });
-    return unsubscribe;
-  }, []);
-
-  const value = {
-    currentUser,
+  const handleLogout = () => {
+    getAuth().signOut()
+      .then(() => {
+        // Redireciona para a rota /home após logout
+        navigate('/');
+      })
+      .catch((error) => {
+        console.error('Erro ao fazer logout:', error);
+      });
   };
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return (
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+      {currentUser ? (
+        <>
+          <img
+            src={currentUser.photoURL || 'default-avatar.png'} 
+            
+            style={{ width: 40, height: 40, borderRadius: '50%', marginRight: 10 }}
+          />
+          <span>{currentUser.displayName || currentUser.email}</span>
+          <button style={{ marginLeft: 10 }} onClick={handleLogout}>
+            Logout
+          </button>
+        </>
+      ) : (
+        <span>
+           <Link to='/login' className='loginbtn'>Entrar</Link>
+     
+         <Link to='/registro' className='registrobtn'>Cadastrar</Link>
+        </span>
+      )}
+    </div>
+  );
 };

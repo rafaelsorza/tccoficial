@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { FaGoogle } from 'react-icons/fa'
+import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { auth } from './firebase-config';
+import './Login.css'
 
 const Login: React.FC = () => {
-  const [email, setEmail] = useState<string>('');
+   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
+  const provider = new GoogleAuthProvider();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,26 +28,69 @@ const Login: React.FC = () => {
     }
   };
 
+  const handleGoogleLogin = async () => {
+    try {
+      await signInWithPopup(auth, provider);
+      navigate('/dashboard');
+    } catch (error: any) {
+      setError(error.message);
+    }
+  };
+
+
   return (
-    <div className="form-container">
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Senha"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        {error && <p className="error-message">{error}</p>}
-        <button type="submit">Login</button>
-      </form>
-      <Link to="/registro">Registrar-se</Link>
+   
+    <div className="login-page"> 
+    <div className="logo">
+        <img src="logo.png"  width={"35vh"} height={"35vh"}/>
+    </div>
+   
+      <div className="login-container"> 
+         <div className="image-container">
+          <img src="/registro.jfif"/>
+      
+        </div>
+        <div className="form-container">
+          <h1>Bem-vindo de volta!</h1>
+          <p>Acompanhe sua saúde de uma maneira rápida e eficiente.</p>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="email"
+              placeholder="Username"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="input-field"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="input-field"
+            />
+            <div className="forgot-password">
+              <Link to="/forgot-password">Esqueceu a senha?</Link>
+            </div>
+            {error && <p className="error-message">{error}</p>}
+            <button type="submit" className="login-button">Entrar</button>
+          </form>
+
+          <div className="divider">
+            <span>ou continue com</span>
+          </div>
+
+          <div className="social-login">
+             <button className="social-button google" onClick={handleGoogleLogin}> <FaGoogle/> </button>
+            
+          </div>
+
+          <p className="register-link">
+            Não tem uma conta? <Link to="/registro">Registre-se</Link>
+          </p>
+        </div>
+
+      
+      </div>
     </div>
   );
 };

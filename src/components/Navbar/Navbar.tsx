@@ -1,6 +1,7 @@
 import React from 'react';
 import './Navbar.css'
 import { Link } from 'react-router-dom';
+import { UserButton } from '../../pages/Auth/Login/authContext';
 
 const Navbar: React.FC = () => {
     return (
@@ -10,11 +11,7 @@ const Navbar: React.FC = () => {
   
       </div>
       <div className="navbar-buttons">
-
-        
-        <Link to='/login' className='loginbtn'>Entrar</Link>
-     
-         <Link to='/registro' className='registrobtn'>Cadastrar</Link>
+       <UserButton/>
       </div>
     </nav>
     );

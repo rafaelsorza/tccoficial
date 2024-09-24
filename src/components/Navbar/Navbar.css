@@ -19,33 +19,7 @@
     display: flex;
     justify-content: space-between;
     width: 12%;
-    gap: 10px;
+    gap: 20 px;
    
 }
 
-.loginbtn {
-    background-color: transparent;
-    font-weight: bold;
-    color: #000000;
-display:flex ;
-    border-radius: 2vh;
-    border: 2px solid black;
-    text-decoration: none;
-    align-items: center;
-    justify-content: center;
-    width: 12vh;
-
-}
-
-.registrobtn {
-    background-color: transparent;
-    border: 2px solid rgb(0, 0, 0);
-    font-weight: bold;
-    color: rgb(0, 0, 0);
-   display: flex; 
-    border-radius: 2vh;
-    text-decoration: none;
-    width: 17vh;
-    align-items: center;
-    justify-content: center;
-}
