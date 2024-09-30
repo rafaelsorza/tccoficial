@@ -1,58 +1,70 @@
 import './Dashboard.css';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { UserButton } from '../Auth/Login/authContext';
+import DisplayDate from '../../components/DisplayDate/DisplayDate';
+import Sidebar from '../../components/sidebar/sidebar';
+
+interface NutritionalValues {
+  totalCalories: number;
+  totalProtein: number;
+  totalVitamins: number;
+  totalCarbohydrates: number;
+}
 
 const Dashboard: React.FC = () => {
+  const [meals, setMeals] = useState<NutritionalValues[]>([]);
+
+  useEffect(() => {
+    const storedMeals = localStorage.getItem('meals');
+    const storedTimestamp = localStorage.getItem('mealsTimestamp');
+    const currentTime = new Date().getTime();
+
+    if (storedMeals && storedTimestamp) {
+      const parsedMeals = JSON.parse(storedMeals);
+      const timestamp = JSON.parse(storedTimestamp);
+
+      if (currentTime - timestamp < 24 * 60 * 60 * 1000) {
+        setMeals(parsedMeals);
+      } else {
+        localStorage.removeItem('meals');
+        localStorage.removeItem('mealsTimestamp');
+      }
+    }
+  }, []);
+
+  const combinedNutritionalValues = meals.reduce(
+    (acc, meal) => ({
+      totalCalories: acc.totalCalories + meal.totalCalories,
+      totalProtein: acc.totalProtein + meal.totalProtein,
+      totalVitamins: acc.totalVitamins + meal.totalVitamins,
+      totalCarbohydrates: acc.totalCarbohydrates + meal.totalCarbohydrates,
+    }),
+    { totalCalories: 0, totalProtein: 0, totalVitamins: 0, totalCarbohydrates: 0 }
+  );
+
+
+
   return (
-    <div className="dashboard-container">
-      <aside className="sidebar">
-        <div className="sidebar-header">
-          <h2>impozitions</h2>
+
+    <div className='container'>
+      <div className="left">
+        <Sidebar/>
+      </div>
+      <div className="main">
+        <div className="welcome">
+          <DisplayDate />
+         <p>Ola bem-vindo de volta!</p>
         </div>
-        <nav className="sidebar-nav">
-          <ul>
-            <li>Dashboard</li>
-            <li>Recruitment</li>
-            <li>Onboarding</li>
-            <li>Recruitment tasks</li>
-            <li>Calendar</li>
-            <li>Settings</li>
-          </ul>
-        </nav>
-        <div className="sidebar-support">
-          <button className="support-btn">Support 24/7</button>
-        </div>
-      </aside>
+      </div>
+      <div className="right">
+     
+         <UserButton /></div>
 
-      <main className="main-content">
-        <header className="dashboard-header">
-          <h2>Dashboard</h2>
-          <div className="user-profile">
-            <UserButton />
-          </div>
-        </header>
-
-        <section className="welcome-section">
-          <div className="welcome-card">
-            <h3>Hello Katie!</h3>
-            <p>You have 16 new applications. It is a lot of work for today! So let's start.</p>
-            <a href="#">review it!</a>
-          </div>
-          <div className="calendar-card">
-            <h3>March 2020</h3>
-            {/* Aqui você pode implementar um calendário mais tarde */}
-          </div>
-        </section>
-
-        <section className="content-section">
-          <div className="cards">
-            <div className="card">You need to hire</div>
-            <div className="card">Recruitment progress</div>
-            <div className="card">New Applicants</div>
-          </div>
-        </section>
-      </main>
+   
     </div>
+
+
+
   );
 };
 

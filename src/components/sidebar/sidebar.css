@@ -1,0 +1,60 @@
+.sidebar {
+  width: 6vh;
+  background-color: #f8f9fb;
+ padding: 8vh;
+ 
+  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo h2 {
+  color: #4a4a4a;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu ul li {
+  margin: 20px 0;
+  
+}
+
+.menu ul li a {
+  color: #4a4a4a;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+ 
+}
+
+.menu ul li a:hover {
+  color: #007bff;
+}
+
+.menu ul li a svg {
+align-items: center;
+   height: 5vh;
+  width: 5vh;
+}
+
+.upgrade {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.upgrade button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.upgrade button:hover {
+  background-color: #0056b3;
+}

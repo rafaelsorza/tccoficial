@@ -68,7 +68,7 @@ const Registro: React.FC = () => {
 
        <div className="register-container"> 
          <div className="image-container">
-          <img src="/registro.jfif"/>
+          <img src="/patins.jfif"/>
       
         </div>
 

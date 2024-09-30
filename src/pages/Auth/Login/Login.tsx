@@ -42,12 +42,12 @@ const Login: React.FC = () => {
    
     <div className="login-page"> 
     <div className="logo">
-        <img src="logo.png"  width={"35vh"} height={"35vh"}/>
+       <Link to="/"><img src="logo.png"  width={"35vh"} height={"35vh"}/></Link> 
     </div>
    
       <div className="login-container"> 
          <div className="image-container">
-          <img src="/registro.jfif"/>
+          <img src="/patins.jfif"/>
       
         </div>
         <div className="form-container">
@@ -68,9 +68,7 @@ const Login: React.FC = () => {
               onChange={(e) => setPassword(e.target.value)}
               className="input-field"
             />
-            <div className="forgot-password">
-              <Link to="/forgot-password">Esqueceu a senha?</Link>
-            </div>
+            
             {error && <p className="error-message">{error}</p>}
             <button type="submit" className="login-button">Entrar</button>
           </form>
