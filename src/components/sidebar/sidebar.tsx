@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaChartLine, FaProductHunt, FaUserAlt, FaApple, FaFish, FaHandsHelping} from 'react-icons/fa';
+import { FaChartLine, FaApple, FaFish, FaHandsHelping} from 'react-icons/fa';
 import './sidebar.css';
 
 const Sidebar: React.FC = () => {
   return (
     <div className="sidebar">
-      <div className="logo">
-      <img src='/logo.png' width={'35vh'} height={'35vh'}></img>
-      </div>
+    
       <div className="menu">
+      <img src='/logo.png' width={'35vh'} height={'35vh'}></img>
+  
         <ul>
           <li><Link to="/dashboard"><FaChartLine /> </Link></li>
         
