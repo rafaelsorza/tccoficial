@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { UserButton } from '../Auth/Login/authContext';
 import DisplayDate from '../../components/DisplayDate/DisplayDate';
 import Sidebar from '../../components/sidebar/sidebar';
+import { UserMenu } from '../../components/userMenu/userMenu';
 
 
 const Dashboard: React.FC = () => {
@@ -17,7 +18,7 @@ const Dashboard: React.FC = () => {
       <div className="main">
         <div className="nave">
           <div className="user"> 
-             <UserButton />  
+           <UserMenu/>
           </div>
            
         </div>

@@ -1,0 +1,61 @@
+.user-menu-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+ 
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .user-name {
+    margin-right: 5px;
+    font-weight: bold; /* Nome em negrito */
+  }
+  
+  
+  .dropdown-arrow {
+    font-size: 12px;
+    margin-left: 5px;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+  
+    right: 0;
+    height: 18vh;
+    background-color: white; /* Cor de fundo do menu */
+    border: 1px solid #e0e0e0; /* Borda do menu */
+    border-radius: 2vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 15vh; /* Largura do menu */
+    z-index: 1;
+    padding: 10px;
+  }
+  
+  .user-details {
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;/* Espaço entre os detalhes do usuário e o menu */
+  }
+  
+  .user-email {
+    color: #6c757d; /* Cor mais clara para o email */
+  }
+  
+
+  
+  
+  
