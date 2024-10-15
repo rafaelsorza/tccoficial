@@ -26,35 +26,30 @@ function Home() {
     navigate('/login'); // Redireciona para a rota de login
   };
 
- const handleNavigate2 = () => {
+  const handleNavigate2 = () => {
     navigate('/register'); // Redireciona para a rota de login
   };
   return (
     <>
-<Navbar/>
+      <Navbar />
       <header className="hero-section">
         <h1 className="title">Bem vindo a Nossa Plataforma de Saúde Online!</h1>
         <p className='subtitle'>Acompanhe, monitore e gerencie sua saúde de forma rápida e eficiente.
         </p>
-     
-      </header>
 
+      </header>
 
       <div className="half-circle"></div>
 
-  
-
-
-
       <footer className="footer">
-      <div className="footer-container">
-  
-        <div className="footer-info">
-          <p>&copy; {new Date().getFullYear()} Vitality Vision. Todos os direitos reservados.</p>
-          <p>Contato: <a href="mailto:contato@empresa.com">vitalityvisionn@gmail.com</a></p>
+        <div className="footer-container">
+
+          <div className="footer-info">
+            <p>&copy; {new Date().getFullYear()} Vitalitay Vision. Todos os direitos reservados.</p>
+            <p>Contato: <a href="mailto:contato@empresa.com">vitalityvisionn@gmail.com</a></p>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
 
 
 

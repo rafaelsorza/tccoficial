@@ -3,11 +3,12 @@
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
+  height: 20%;
   position: absolute;
   align-items: center;
   justify-content: space-around;
   flex-direction: row;
+  border-radius: 500px; /* Bordas arredondadas com raio de 10px */
 }
 
 .side {
@@ -17,8 +18,16 @@
 
 .main {
   background-color: rgba(59, 59, 59, 0.089);
-  height: 100%;
-  width: 95%;
+  height: 20%;
+  width: 91%;
+  margin: 10px;
+  top: 0; 
+  right: 0;
+  border-radius: 20px;
+  position: fixed; /* Ou 'absolute' ou 'fixed' dependendo da sua necessidade */
+  z-index: 10; /* Valor maior para garantir que fique acima */
+  padding: 20px; /* Espaçamento interno, ajuste conforme necessário */
+  /* Outros estilos que você queira aplicar */
 }
 
 .nave {
@@ -30,5 +39,19 @@
 
 .user {
   margin-right: 5vh;
-  margin-top: 1vh;
+  margin-top: 6vh;
+}
+
+.divFunc {
+  position: fixed; /* A div ficará fixa na tela */
+  right: 0; /* Posiciona a div na extremidade direita da tela */
+  top: 250px; /* Ajuste a distância do topo conforme necessário */
+  height: 65%; /* Altura da div */
+  width: 91%; /* Largura da div */
+  border-radius: 20px;
+  margin: 10px;
+  background-color: rgba(59, 59, 59, 0.089); /* Cor de fundo */
+  z-index: 10; /* Garante que a div fique acima de outros elementos */
+  padding: 20px; /* Ajuste o espaçamento interno conforme necessário */
+  /* Outros estilos que você queira aplicar */
 }

@@ -4,6 +4,7 @@ import RecipeCard from './Recipecard';
 import RecipeDetails from './RecipeDetail';
 import {faCoffee, faUtensils, faMoon} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Sidebar from '../../components/sidebar/sidebar';
 
 export interface Recipe {
   name: string;
@@ -93,6 +94,8 @@ const Recipes: React.FC = () => {
   const currentRecipes = recipes[selectedCategory].slice(0, 6);
 
   return (
+<>
+<Sidebar />
     <div className="dashboard2">
       <div className="main2">
         <div className="content2">
@@ -125,6 +128,7 @@ const Recipes: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

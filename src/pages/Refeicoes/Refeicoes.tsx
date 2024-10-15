@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import NutritionalChart from '../../components/NutritionChart/NutritionChart';
 import './reifs.css';
-
+import Sidebar from '../../components/sidebar/sidebar';
 interface Food {
   id: string;
   product_name: string;
@@ -143,6 +143,8 @@ const Refeicoes: React.FC = () => {
   );
 
   return (
+<>
+    <Sidebar/>
     <div className="dashboard1">
       <div className="main1">
         <div className="left1">
@@ -213,6 +215,7 @@ const Refeicoes: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

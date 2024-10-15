@@ -1,33 +1,79 @@
+/* Sidebar */
 .sidebar {
   display: flex;
-  padding: 0;
-  margin: 0;
+  margin: 10px;
+  position: fixed; /* Fixa a sidebar para que ela fique sempre visível */
   top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(255, 255, 255);
-  align-items: center;
-  justify-content: start;
-  flex-direction: column;
-  border-radius: 9vh;
+  left: 0; /* Posiciona a sidebar no lado esquerdo da tela */
+  height: 97%; /* Sidebar ocupa toda a altura da página */
+  width: 5%; /* Sidebar ocupa 10% da largura da tela */
+  background-color: rgb(161, 160, 160); /* Cor de fundo branca */
+  align-items: center; /* Alinha os itens centralmente no eixo vertical */
+  justify-content: flex-start; /* Itens ficam alinhados ao topo */
+  flex-direction: column; /* Coloca os itens em coluna */
+  border-radius: 20px; /* Borda arredondada */
+  box-shadow: 2px 0 5px rgba(75, 55, 55, 0.1); /* Sombra à direita */
+  z-index: 10; /* Garante que a sidebar fique acima de outros elementos */
+  overflow-x: hidden; /* Previne rolagem horizontal */
+  overflow-y: auto; /* Permite rolagem vertical se o conteúdo for maior que a tela */
 }
 
+/* Menu */
 .menu {
   display: flex;
-  margin-top: 5vh;
-  gap: 15vh;
+  margin-top: 5vh; /* Espaçamento superior */
+  gap: 8vh; /* Espaço entre logo e itens de navegação */
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
+  width: 100%; /* Menu ocupa a largura total da sidebar */
 }
 
-
+/* Estilo dos itens do menu */
 .menu ul {
-  gap: 5vh;
+  list-style: none; /* Remove marcadores das listas */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column; /* Itens em coluna */
+  gap: 3vh; /* Espaçamento entre os itens */
+  width: 100%;
+  align-items: center; /* Alinha ícones ao centro */
+}
+
+/* Estilo para os ícones de navegação */
+.menu ul li {
+  display: flex;
+  justify-content: center; /* Centraliza os ícones dentro dos itens de lista */
 }
 
 .menu ul li svg {
   width: 4vh;
   height: 4vh;
-  color: rgba(32, 32, 32, 0.479);
+  color: rgba(32, 32, 32, 0.7); /* Ajusta a cor dos ícones para uma visibilidade melhor */
+  transition: color 0.3s ease-in-out; /* Transição suave para hover */
+}
+
+/* Efeito hover para os ícones */
+.menu ul li:hover svg {
+  color: rgba(32, 32, 32, 1); /* Ícone escurece ao passar o mouse */
+}
+
+/* Ajusta a logo dentro do menu */
+.logo-link img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 3vh; /* Espaçamento inferior da logo */
+}
+
+/* Link que remove o estilo de link tradicional */
+.logo-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.logo-link:focus {
+  outline: none;
 }
