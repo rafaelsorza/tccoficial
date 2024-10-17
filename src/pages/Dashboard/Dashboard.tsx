@@ -9,20 +9,16 @@ const Dashboard: React.FC = () => {
   return (
     <>
       <div className="container">
-
-        <div className="side">
-          <Sidebar />
-        </div>
-          <div className="main">
-           <div className="nave">
-             <div className="user">
-               <UserMenu />
-              </div>
+        <div className="side"> <Sidebar /> </div>
+        <div className="main">
+          <DisplayDate />
+          <p className="welcome-message">Ola bem-vindo de volta!</p>  
+          <div className="nave">
+            <div className="user">
+              <UserMenu />
             </div>
-           <DisplayDate />
-          <p>Ola bem-vindo de volta!</p>
+          </div>
         </div>
-        
       </div>
       <div className="divFunc"><h1>colocar elementos aqui</h1></div>
     </>

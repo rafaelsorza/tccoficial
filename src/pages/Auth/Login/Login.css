@@ -13,8 +13,6 @@ height: 96vh;
     margin-left: 2vh;
 }
 
-
-
 .login-container {
   display: flex;
   justify-content: space-between;
@@ -161,10 +159,34 @@ width: 55%;
   line-height: 1.5;
 }
 
-.loginbtn {
-  display: flex;
+.button {
+  display: inline-flex; /* Alinha o conteúdo em linha */
+  align-items: center; /* Centraliza o conteúdo verticalmente */
+  padding: 12px 20px; /* Espaçamento interno */
+  font-size: 16px; /* Tamanho da fonte */
+  color: white; /* Cor do texto */
+  text-decoration: none; /* Remove o sublinhado do link */
+  border: none; /* Remove a borda padrão */
+  border-radius: 5px; /* Bordas arredondadas */
+  cursor: pointer; /* Cursor em forma de mão ao passar sobre o botão */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Efeito de transição suave */
+  text-align: center; /* Centraliza o texto */
 }
 
-.registrobtn{
-  display: flex;
+.loginbtn {
+  background-color: #007bff; /* Cor do botão de login */
+}
+
+.loginbtn:hover {
+  background-color: #0056b3; /* Cor ao passar o mouse */
+  transform: translateY(-2px); /* Leve elevação ao passar o mouse */
+}
+
+.registrobtn {
+  background-color: #28a745; /* Cor do botão de cadastro */
+}
+
+.registrobtn:hover {
+  background-color: #218838; /* Cor ao passar o mouse */
+  transform: translateY(-2px); /* Leve elevação ao passar o mouse */
 }
