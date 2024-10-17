@@ -13,6 +13,7 @@ height: 96vh;
     margin-left: 2vh;
 }
 
+
 .login-container {
   display: flex;
   justify-content: space-between;
@@ -159,34 +160,83 @@ width: 55%;
   line-height: 1.5;
 }
 
-.button {
-  display: inline-flex; /* Alinha o conteúdo em linha */
-  align-items: center; /* Centraliza o conteúdo verticalmente */
+
+
+
+
+.bots {
+    display: flex; /* Adicionando display flex para alinhar em linha */
+    flex-direction: row; /* Garante que os itens estejam em fileira */
+    margin: 10px;
+    top: 0; 
+    right: 0;
+    border-radius: 20px;
+    position: fixed; /* Ou 'absolute' dependendo da necessidade */
+    z-index: 10; /* Valor maior para garantir que fique acima */
+    padding: 20px; /* Espaçamento interno */
+    gap: 20px; /* Espaçamento entre os itens */
+  }
+  
+  /* Media Queries para Responsividade */
+  @media (max-width: 768px) {
+    .bots {
+      width: 95%; /* Aumenta a largura em telas menores */
+      height: auto; /* Permite que a altura se ajuste ao conteúdo */
+      padding: 15px; /* Ajusta o padding em telas menores */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .bots {
+      width: 100%; /* Ocupa toda a largura da tela em dispositivos móveis */
+      height: auto; /* Permite que a altura se ajuste ao conteúdo */
+      padding: 10px; /* Reduz o padding para telas pequenas */
+    }
+  }
+
+
+.loginbtn {
+  display: inline-flex; /* Permite alinhar ícones ou texto */
+  align-items: center; /* Centraliza verticalmente */
   padding: 12px 20px; /* Espaçamento interno */
   font-size: 16px; /* Tamanho da fonte */
   color: white; /* Cor do texto */
-  text-decoration: none; /* Remove o sublinhado do link */
   border: none; /* Remove a borda padrão */
   border-radius: 5px; /* Bordas arredondadas */
   cursor: pointer; /* Cursor em forma de mão ao passar sobre o botão */
   transition: background-color 0.3s ease, transform 0.3s ease; /* Efeito de transição suave */
+  text-decoration: none; /* Remove o sublinhado se for um link */
   text-align: center; /* Centraliza o texto */
-}
-
-.loginbtn {
-  background-color: #007bff; /* Cor do botão de login */
 }
 
 .loginbtn:hover {
   background-color: #0056b3; /* Cor ao passar o mouse */
-  transform: translateY(-2px); /* Leve elevação ao passar o mouse */
+  transform: translateY(-2px); /* Efeito de elevação ao passar o mouse */
+}
+
+.loginbtn:active {
+  transform: translateY(0); /* Retorna ao normal quando clicado */
 }
 
 .registrobtn {
-  background-color: #28a745; /* Cor do botão de cadastro */
+  display: inline-flex; /* Permite alinhar ícones ou texto */
+  align-items: center; /* Centraliza verticalmente */
+  padding: 12px 20px; /* Espaçamento interno */
+  font-size: 16px; /* Tamanho da fonte */
+  color: white; /* Cor do texto */
+  border: none; /* Remove a borda padrão */
+  border-radius: 5px; /* Bordas arredondadas */
+  cursor: pointer; /* Cursor em forma de mão ao passar sobre o botão */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Efeito de transição suave */
+  text-decoration: none; /* Remove o sublinhado se for um link */
+  text-align: center; /* Centraliza o texto */
 }
 
 .registrobtn:hover {
-  background-color: #218838; /* Cor ao passar o mouse */
-  transform: translateY(-2px); /* Leve elevação ao passar o mouse */
+  background-color: #0056b3; /* Cor ao passar o mouse */
+  transform: translateY(-2px); /* Efeito de elevação ao passar o mouse */
+}
+
+.registrobtn:active {
+  transform: translateY(0); /* Retorna ao normal quando clicado */
 }

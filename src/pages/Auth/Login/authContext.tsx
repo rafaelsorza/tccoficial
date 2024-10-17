@@ -16,10 +16,10 @@ export const UserButton: React.FC = () => {
           <span>{currentUser.displayName || currentUser.email}</span>
         </>
       ) : (
-        <span>
+        <div className='bots'>
           <Link to='/login' className='loginbtn'>Entrar</Link>
           <Link to='/registro' className='registrobtn'>Cadastrar</Link>
-        </span>
+        </div>
       )}
     </div>
   );
