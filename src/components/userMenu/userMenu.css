@@ -1,61 +1,77 @@
 .user-menu-container {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .user-info {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
- 
-    padding: 10px;
-    border-radius: 5px;
-  }
-  
-  .user-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .user-name {
-    margin-right: 5px;
-    font-weight: bold; /* Nome em negrito */
-  }
-  
-  
-  .dropdown-arrow {
-    font-size: 12px;
-    margin-left: 5px;
-  }
-  
-  .dropdown-menu {
-    position: absolute;
-  
-    right: 0;
-    height: 18vh;
-    background-color: white; /* Cor de fundo do menu */
-    border: 1px solid #e0e0e0; /* Borda do menu */
-    border-radius: 2vh;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 15vh; /* Largura do menu */
-    z-index: 1;
-    padding: 10px;
-  }
-  
-  .user-details {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline; /* Alinha os itens à esquerda */
+  position: relative;
+  margin-top: 20px;
+  width: 200px;
+}
 
-    display: flex;
-    justify-content: center;
-    flex-direction: column;/* Espaço entre os detalhes do usuário e o menu */
-  }
-  
-  .user-email {
-    color: #6c757d; /* Cor mais clara para o email */
-  }
-  
+.user-info {
+  margin: 10px;
+  display: flex;
+  flex-direction: column; /* Coloca o avatar e o nome em coluna */
+  align-items: flex-start; /* Alinha o avatar e o nome à esquerda */
+  cursor: pointer;
+}
 
-  
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* Torna a imagem circular */
+  margin-bottom: 10px; /* Espaçamento abaixo do avatar */
+}
+
+.dropdown-arrow {
+  font-size: 12px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* Alinha o menu logo abaixo do botão */
+  left: 0; /* Alinha o menu à esquerda */
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 9999; /* Garante que o menu fique sobre outros elementos */
+  width: 200px; height: 170px;
+  padding: 15px; /* Adiciona espaçamento interno */
+  border-radius: 10px;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column; /* Alinha os detalhes do usuário em coluna */
+  align-items: flex-start; /* Alinha os detalhes à esquerda */
+  margin-bottom: 1px; /* Espaçamento de 1px entre o bloco de detalhes e o restante do menu */
+}
+
+.menu-items {
+  list-style: none;
+  padding: 0;
+  margin: 0; /* Remove margens externas para evitar espaçamentos desnecessários */
+  display: flex;
+  flex-direction: column; /* Alinha as opções do menu em coluna */
+  align-items: flex-start; /* Alinha os itens do menu à esquerda */
+}
+
+.menu-items li {
+  margin-bottom: 1px; /* Espaçamento de 1px entre os itens do menu */
+}
+
+.loginbtn, .registrobtn {
+  display: block;
+  margin-bottom: 1px; /* Espaçamento de 1px entre os botões de login e registro */
+}
+.user-name {
+  font-weight: bold;
+}
+
+.user-email {
+  color: #555;
+  font-size: 14px;
+}
+
+
   
   
