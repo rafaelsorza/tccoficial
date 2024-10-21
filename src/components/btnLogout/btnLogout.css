@@ -11,6 +11,8 @@
 }
 
 .btnSair svg{
-    color: rgb(0, 0, 0);
-    font-size: 3vh;
+    width: 4vh;
+    height: 4vh;
+    color: rgba(32, 32, 32, 0.7); /* Ajusta a cor dos ícones para uma visibilidade melhor */
+    transition: color 0.3s ease-in-out;
 }

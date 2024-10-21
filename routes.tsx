@@ -8,6 +8,7 @@ import Dashboard from './src/pages/Dashboard/Dashboard';
 import Recipes from './src/pages/Recipes/Recipes';
 import Refeicoes from './src/pages/Refeicoes/Refeicoes';
 import Ajuda from './src/pages/Help/Help';
+import Profile from './src/pages/Profile/Profile';
 
 
 const AppRoutes: React.FC = () => {
@@ -26,6 +27,7 @@ const AppRoutes: React.FC = () => {
                 <Route path="/recipes" element={<Recipes />} />
                 <Route path="/reifs" element={<Refeicoes />} />
                 <Route path="/ajuda" element={<Ajuda />} />
+                <Route path="/perfil" element={<Profile />} />
                 
 
              

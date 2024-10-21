@@ -1,4 +1,4 @@
-/* Sidebar */
+
 .sidebar {
   display: flex;
   margin: 10px;
@@ -7,7 +7,7 @@
   left: 0; /* Posiciona a sidebar no lado esquerdo da tela */
   height: 97%; /* Sidebar ocupa toda a altura da página */
   width: 5%; /* Sidebar ocupa 10% da largura da tela */
-  background-color: rgb(161, 160, 160); /* Cor de fundo branca */
+  background-color: rgb(255, 255, 255); /* Cor de fundo branca */
   align-items: center; /* Alinha os itens centralmente no eixo vertical */
   justify-content: flex-start; /* Itens ficam alinhados ao topo */
   flex-direction: column; /* Coloca os itens em coluna */
@@ -24,9 +24,38 @@
   margin-top: 5vh; /* Espaçamento superior */
   gap: 8vh; /* Espaço entre logo e itens de navegação */
   align-items: center;
-  justify-content: space-around;
+ 
   flex-direction: column;
   width: 100%; /* Menu ocupa a largura total da sidebar */
+}
+
+.menu2 {
+  display: flex;
+  margin-top: 10vh; /* Espaçamento superior */
+  gap: 3px; /* Espaço entre logo e itens de navegação */
+  align-items: center;
+
+  flex-direction: column;
+  width: 100%; /* Menu ocupa a largura total da sidebar */
+}
+
+/* Estilo para os ícones de navegação */
+.menu2 li {
+  display: flex;
+  justify-content: center; 
+  gap: 2px;/* Centraliza os ícones dentro dos itens de lista */
+}
+
+.menu2 li svg {
+  width: 4vh;
+  height: 4vh;
+  color: rgba(32, 32, 32, 0.7); /* Ajusta a cor dos ícones para uma visibilidade melhor */
+  transition: color 0.3s ease-in-out; /* Transição suave para hover */
+}
+
+/* Efeito hover para os ícones */
+.menu2 li:hover svg {
+  color: rgba(32, 32, 32, 1); /* Ícone escurece ao passar o mouse */
 }
 
 /* Estilo dos itens do menu */
@@ -36,7 +65,6 @@
   margin: 0;
   display: flex;
   flex-direction: column; /* Itens em coluna */
-  gap: 3vh; /* Espaçamento entre os itens */
   width: 100%;
   align-items: center; /* Alinha ícones ao centro */
 }
@@ -77,3 +105,4 @@
 .logo-link:focus {
   outline: none;
 }
+

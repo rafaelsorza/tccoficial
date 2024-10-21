@@ -1,0 +1,95 @@
+
+
+.profile-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.main-content {
+    flex: 1;
+    padding: 40px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.profile-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-form {
+    width: 60%;
+}
+
+.profile-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.profile-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.profile-form button {
+    padding: 10px 20px;
+    background-color: #2d2d39;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.profile-form button:hover {
+    background-color: #e63946;
+}
+
+.profile-picture-section {
+    width: 35%;
+    text-align: center;
+}
+
+.profile-picture-preview img.current-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.avatar-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.avatar-option {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.avatar-option:hover {
+    transform: scale(1.1);
+}
+
+.avatar-option.selected {
+    border: 3px solid #e63946;
+}

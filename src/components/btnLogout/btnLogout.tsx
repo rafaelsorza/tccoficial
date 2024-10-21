@@ -1,8 +1,8 @@
 import React from 'react';
 import { getAuth } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
-import { IoExitOutline } from "react-icons/io5";
 import './btnLogout.css'
+import { IoMdLogOut } from 'react-icons/io';
 export const LogoutButton: React.FC = () => {
   const navigate = useNavigate();
 
@@ -21,7 +21,7 @@ export const LogoutButton: React.FC = () => {
     <button 
     className='btnSair'
     onClick={handleLogout}>
-   <IoExitOutline />
+   <IoMdLogOut />
 
     </button>
   );

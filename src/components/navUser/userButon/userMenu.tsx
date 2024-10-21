@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useAuth } from '../../main';
-import { LogoutButton } from '../btnLogout/btnLogout';
+import { useAuth } from '../../../main'
+import { LogoutButton } from '../../btnLogout/btnLogout'
 import { Link } from 'react-router-dom';
-import './userMenu.css';
+
 
 export const UserMenu: React.FC = () => {
   const { currentUser } = useAuth();
@@ -35,15 +35,15 @@ export const UserMenu: React.FC = () => {
               src={currentUser.photoURL || 'default-avatar.jpg'}
               className="user-avatar"
               alt="User Avatar"
-            />
-            <span className="dropdown-arrow">&#9662;</span>
+            /> <div className="user-details">
+                <span className="user-name">{currentUser.displayName}</span>
+               
+              </div>
+            
           </div>
           {menuOpen && (
             <div className="dropdown-menu">
-              <div className="user-details">
-                <span className="user-name">{currentUser.displayName}</span>
-                <span className="user-email">{currentUser.email}</span>
-              </div>
+              <span className="user-email">{currentUser.email}</span>
               <ul className="menu-items">
                 <li><Link to="/perfil">Perfil</Link></li>
                 <li><Link to="/settings">Configurações</Link></li>
