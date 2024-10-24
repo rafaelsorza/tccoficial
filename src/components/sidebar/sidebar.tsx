@@ -15,7 +15,7 @@ import { HiMiniPencilSquare } from "react-icons/hi2";
 
 import './sidebar.css';
 import { UserButton } from '../../pages/Auth/Login/authContext';
-import { UserMenu } from '../navUser/userButon/userMenu';
+
 
 const Sidebar: React.FC = () => {
   return (

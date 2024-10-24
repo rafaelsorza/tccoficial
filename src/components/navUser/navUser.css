@@ -1,11 +1,8 @@
-.contain {
-    background-color: transparent;
-    width: 100%;
-    height: 10%;
+.nav-user{
     display: flex;
-    align-items: center;
+    background-color: brown;
+    position: fixed;
+    width: 100%;
     justify-content: flex-end;
-    top: 0; 
-    margin: 0;
-    padding: 0;
+ 
 }

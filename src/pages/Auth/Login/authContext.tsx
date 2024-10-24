@@ -12,6 +12,7 @@ export const UserButton: React.FC = () => {
           <img
             src={currentUser.photoURL || 'default-avatar.jpg'}
             style={{ width: 40, height: 40, borderRadius: '50%', marginRight: 10 }}
+            alt="User Avatar"
           />
           <span>{currentUser.displayName || currentUser.email}</span>
         </>
