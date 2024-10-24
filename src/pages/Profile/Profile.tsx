@@ -6,11 +6,14 @@ import { db } from '../Auth/Login/firebase-config'; // ajuste o caminho conforme
 import './Profile.css'; // Arquivo CSS para estilização
 
 const avatarOptions = [
-    './avatar1.jfif',
-    './avatar2.jfif',
-    './avatar3.jfif',
-
-    
+    './avatar1.png',
+    './avatar2.png',
+    './avatar3.png',
+    './avatar4.png',
+    './avatar5.png',
+    './avatar6.png',
+    './avatar7.png',
+    './avatar8.png',
 ];
 
 const Profile: React.FC = () => {
@@ -18,20 +21,22 @@ const Profile: React.FC = () => {
     const storage = getStorage();
     const user = auth.currentUser;
 
-    const [displayName, setDisplayName] = useState<string>('');
-    const [email, setEmail] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
-    const [profilePicture, setProfilePicture] = useState<File | null>(null);
+    const [displayName, setDisplayName] = useState<string>(''); // Nome do usuário
+    const [email, setEmail] = useState<string>(''); // Email do usuário
+    const [password, setPassword] = useState<string>(''); // Senha nova do usuário
+    const [profilePicture, setProfilePicture] = useState<File | null>(null); // Foto de perfil
     const [selectedAvatar, setSelectedAvatar] = useState<string>(''); // Avatar selecionado
 
+    // Função para buscar os dados do usuário ao carregar a página
     useEffect(() => {
         const fetchUserData = async () => {
             if (user) {
                 const userRef = doc(db, 'users', user.uid);
                 const userDoc = await getDoc(userRef);
+
                 if (userDoc.exists()) {
-                    setDisplayName(userDoc.data()?.displayName || '');
-                    setEmail(userDoc.data()?.email || '');
+                    setDisplayName(userDoc.data()?.displayName || ''); // Nome atual do usuário
+                    setEmail(userDoc.data()?.email || ''); // Email atual do usuário
                     setSelectedAvatar(userDoc.data()?.photoURL || '/avatars/avatar1.png'); // Avatar atual
                 }
             }
@@ -40,21 +45,24 @@ const Profile: React.FC = () => {
         fetchUserData();
     }, [user]);
 
+    // Função para atualizar os dados do perfil
     const handleProfileUpdate = async () => {
         if (!user) return;
 
         try {
+            // Atualiza o nome e o email do usuário
             await updateProfile(user, { displayName });
             if (email) await updateEmail(user, email);
             if (password) await updatePassword(user, password);
 
+            // Atualiza os dados no Firestore
             await setDoc(doc(db, 'users', user.uid), { displayName, email }, { merge: true });
-            alert('Perfil atualizado com sucesso!');
         } catch (error) {
             console.error('Erro ao atualizar perfil: ', error);
         }
     };
 
+    // Função para atualizar a foto de perfil
     const handleProfilePictureUpload = async () => {
         if (!user || !profilePicture) return;
 
@@ -66,26 +74,20 @@ const Profile: React.FC = () => {
 
             await updateProfile(user, { photoURL });
             await setDoc(doc(db, 'users', user.uid), { photoURL }, { merge: true });
-
-            alert('Foto de perfil atualizada com sucesso!');
         } catch (error) {
             console.error('Erro ao atualizar foto de perfil: ', error);
         }
     };
 
+    // Função para selecionar o avatar
     const handleAvatarSelection = async (avatar: string) => {
         if (!user) return;
 
         setSelectedAvatar(avatar);
 
         try {
-            // Atualiza o avatar no Firebase Auth
             await updateProfile(user, { photoURL: avatar });
-            
-            // Atualiza o avatar no banco de dados Firestore
             await setDoc(doc(db, 'users', user.uid), { photoURL: avatar }, { merge: true });
-
-            alert('Avatar atualizado com sucesso!');
         } catch (error) {
             console.error('Erro ao atualizar avatar: ', error);
         }
@@ -93,45 +95,46 @@ const Profile: React.FC = () => {
 
     return (
         <div className="profile-container">
-            
             <div className="main-content">
-                <h1>Personal</h1>
                 <div className="profile-section">
                     <div className="profile-form">
                         <label>Nome:</label>
+                        {/* Campo de texto com o nome atual do usuário */}
                         <input
                             type="text"
-                            value={displayName}
-                            onChange={(e) => setDisplayName(e.target.value)}
+                            value={displayName} // Nome é exibido no input
+                            onChange={(e) => setDisplayName(e.target.value)} // Atualiza o estado ao alterar
                             placeholder="Nome de usuário"
                         />
                         <label>Email:</label>
+                        {/* Campo de texto com o email atual do usuário */}
                         <input
                             type="email"
                             value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            onChange={(e) => setEmail(e.target.value)} // Atualiza o estado ao alterar
                             placeholder="Email"
                         />
                         <label>Senha:</label>
                         <input
                             type="password"
                             value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            onChange={(e) => setPassword(e.target.value)} // Atualiza o estado ao alterar
                             placeholder="Nova senha"
                         />
                         <button onClick={handleProfileUpdate}>Atualizar Perfil</button>
                     </div>
                     <div className="profile-picture-section">
                         <div className="profile-picture-preview">
+                            {/* Exibição da foto de perfil ou avatar */}
                             <img
                                 src={selectedAvatar || (profilePicture ? URL.createObjectURL(profilePicture) : 'default-profile.png')}
                                 alt="Profile"
                                 className="current-avatar"
                             />
                         </div>
-                  
                         <h3>Escolha um avatar</h3>
                         <div className="avatar-options">
+                            {/* Lista de avatares para o usuário escolher */}
                             {avatarOptions.map((avatar, index) => (
                                 <img
                                     key={index}

@@ -1,8 +1,13 @@
 .nav-user{
     display: flex;
-    background-color: brown;
+    background-color: transparent;
     position: fixed;
     width: 100%;
     justify-content: flex-end;
  
+}
+
+.itens{
+    margin-top: 1.5vh;
+    margin-right: 5vh;
 }
