@@ -360,3 +360,43 @@ body {
   body {
     overflow-x: hidden;
   }
+
+  .fotosHome {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens dentro do grupo se ajustem */
+    justify-content: space-between; /* Espaçamento entre itens */
+    margin-bottom: 20px; /* Espaço entre grupos */
+  }
+  
+  .item1 {
+    display: flex;
+    flex-direction: column; /* Coloca a imagem em cima do texto */
+    align-items: center; /* Centraliza o conteúdo */
+    width: calc(33% - 20px); /* Ajuste para três itens por linha com espaço */
+    margin-bottom: 20px; /* Espaço entre as linhas */
+  }
+  
+  .item1 img {
+    width: 90px; /* Largura da imagem pequena */
+    height: 90px; /* Altura da imagem pequena */
+    border-radius: 0; /* Imagem redonda */
+    object-fit: cover; /* Cobre o espaço sem distorcer */
+  }
+  
+  .item2 {
+    display: flex;
+    align-items: center; /* Alinha a imagem e o texto verticalmente */
+    margin-bottom: 15px; /* Espaço entre os itens */
+  }
+  
+  .item2 img {
+    width: 60px; /* Largura da imagem grande */
+    height: 60px; /* Altura da imagem grande */
+    border-radius: 50%; /* Imagem redonda */
+    object-fit: cover; /* Cobre o espaço sem distorcer */
+    margin-right: 10px; /* Espaço entre a imagem e o texto */
+  }
+  
+  .item2-text {
+    flex: 1; /* O texto ocupa o espaço restante */
+  }

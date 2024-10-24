@@ -47,7 +47,7 @@ const Login: React.FC = () => {
    
       <div className="login-container"> 
          <div className="image-container">
-          <img src="/patins.jfif"/>
+          <img src="/foto1.jfif"/>
       
         </div>
         <div className="form-container">

@@ -34,28 +34,61 @@ function Home() {
       <Navbar />
       <header className="hero-section">
         <h1 className="title">Bem vindo a Nossa Plataforma de Saúde Online!</h1>
-        <p className='subtitle'>Acompanhe, monitore e gerencie sua saúde de forma rápida e eficiente.
+        <p className="subtitle">
+          Acompanhe, monitore e gerencie sua saúde de forma rápida e eficiente.
         </p>
-
       </header>
-
       <div className="half-circle"></div>
 
-      <footer className="footer">
+      <div className="fotosHome">
+        <div className="item1">
+          <img src="/fotorec.PNG" />
+          <div><p className="subtitle">Mostrar função de receitas</p></div>
+        </div>
+        <div className="item1">
+          <img src="/IconCal.PNG" alt="Monitoramento de calorias" />
+          <div><p className="subtitle">Monitoramento de calorias</p></div>
+        </div>
+        <div className="item1">
+          <img src="caminho/para/imagem3.jpg" alt="Funções do app" />
+          <div><p className="subtitle">Funções do app</p></div>
+        </div>
+      </div>
+
+      <div className="fotosHome">
+        <div className="item2">
+          <img src="caminho/para/imagem4.jpg" alt="Função de receitas" />
+          <div className="item2-text">Mostrar função de receitas</div>
+        </div>
+      </div>
+      <div className="fotosHome">
+        <div className="item2">
+          <div className="item2-text">Monitoramento de calorias</div>
+          <img src="caminho/para/imagem5.jpg" alt="Monitoramento de calorias" />
+          
+        </div>
+      </div>
+      <div className="fotosHome">
+        <div className="item2">
+          <img src="caminho/para/imagem6.jpg" alt="Funções do app" />
+          <div className="item2-text">Funções do app</div>
+        </div>
+      </div >
+
+
+      <div className="footer">
         <div className="footer-container">
 
-          <div className="footer-info">
-            <p>&copy; {new Date().getFullYear()} Vitalitay Vision. Todos os direitos reservados.</p>
-            <p>Contato: <a href="mailto:contato@empresa.com">vitalityvisionn@gmail.com</a></p>
-          </div>
+        </div >
+        <div className="footer-info">
+          <p>&copy; {new Date().getFullYear()} Vitalitay Vision. Todos os direitos reservados.</p>
+          <p>
+            Contato: <a href="mailto:vitalityvisionn@gmail.com">vitalityvisionn@gmail.com</a>
+          </p>
         </div>
-      </footer>
-
-
-
-
+      </div>
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;
