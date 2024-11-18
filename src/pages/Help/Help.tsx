@@ -13,6 +13,8 @@ const HelpMenu: React.FC = () => {
         <>
         <Sidebar/>
         <div className="help-menu-container">
+            <h1> Como podemos ajudá-lo? </h1>
+            <p>Bem-vindo à nossa página de ajuda! Aqui você encontrará as respostas para as dúvidas mais comuns.</p>
             <div className="menu-section" onClick={() => toggleSection('Como posso me cadastrar na plataforma?')}>
                 <div className="menu-title">Como posso me cadastrar na plataforma?</div>
                 {openSection === 'Como posso me cadastrar na plataforma?' && (
@@ -75,6 +77,8 @@ const HelpMenu: React.FC = () => {
                     </ul>
                 )}
             </div>
+            <p>Estamos aqui para ajudar! Se você não encontrar o que procura, entre em contato com nossa equipe, nosso email é:<a href="mailto:vitalityvisionn@gmail.com?subject=Dúvida sobre o site">vitalityvisionn@gmail.com</a>.</p>
+
         </div>
         </>
     );
