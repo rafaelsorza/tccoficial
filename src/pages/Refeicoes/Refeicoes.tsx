@@ -41,7 +41,6 @@ const Refeicoes: React.FC = () => {
   const [selectedFoods, setSelectedFoods] = useState<Food[]>([]);
   const [meals, setMeals] = useState<NutritionalValues[]>([]);
 
-  // Load meals from localStorage on initial render
   useEffect(() => {
     const storedMeals = localStorage.getItem('meals');
     const storedTimestamp = localStorage.getItem('mealsTimestamp');
@@ -60,7 +59,6 @@ const Refeicoes: React.FC = () => {
     }
   }, []);
 
-  // Save meals and nutritional values to localStorage whenever they change
   useEffect(() => {
     const currentTime = new Date().getTime();
     localStorage.setItem('meals', JSON.stringify(meals));
@@ -154,7 +152,7 @@ const Refeicoes: React.FC = () => {
   return (
     <>
       <Sidebar />
-      <div className="dashboard1">
+      <div className="container-dash">
         <div className="main1">
           <div className="box">
             <div className="search-container">
@@ -191,6 +189,7 @@ const Refeicoes: React.FC = () => {
 
         <div className="box2">
           <div className="charts">
+            {/* Gráfico de Pizza fixo que é atualizado com as refeições */}
             <NutritionalChart nutritionalValues={combinedNutritionalValues} />
           </div>
         </div>

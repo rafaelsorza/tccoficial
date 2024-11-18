@@ -1,12 +1,12 @@
 /* Estilos gerais */
-.dashboard1 {
+.container-dash {
   display: flex;
-  background-color: #27134922;
-  position: fixed;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+  background-color: rgb(210, 205, 214);
+  position: absolute;
   height: 100%;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
 }
 
 .main1 {

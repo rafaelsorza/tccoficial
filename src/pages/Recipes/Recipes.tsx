@@ -83,7 +83,7 @@ const Recipes: React.FC = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="container-dash">
         <Sidebar />
         <div className="left2">
 

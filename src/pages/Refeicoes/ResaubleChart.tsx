@@ -1,4 +1,7 @@
 import React from 'react';
+import './ResaubleChart.css'
+
+
 
 interface NutritionalValues {
   totalCalories: number;
