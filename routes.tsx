@@ -1,7 +1,7 @@
 import React from 'react';
 import PrivateRoute from './src/pages/Auth/Login/PrivateRoute';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import Home from './src/pages/home/Home';
+import Home from './src/pages/Auth/home/Home';
 import Login from './src/pages/Auth/Login/Login';
 import Registro from './src/pages/Auth/Register/Register';
 import Dashboard from './src/pages/Dashboard/Dashboard';

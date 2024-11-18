@@ -29,8 +29,9 @@
     margin-right: 3vh;
   }
   
-  .right {
+  .detalhes {
     width: 30%;
+    
   }
   
   .profile-section {
@@ -42,15 +43,15 @@
   }
   
   .menu-recipes {
-    position: sticky;
+    position: absolute;
     top: 0;
-    left: 0;
+    left: 8%;
     width: 100%;
     display: flex;
     justify-content: left;
-  
     border: 0;
     z-index: 1000;
+    margin-top: 1%;
   }
   
   .menu-recipes button {
@@ -78,6 +79,10 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 2vh;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
   }
   
   .card-style{

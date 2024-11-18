@@ -4,6 +4,7 @@ import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { db } from '../Auth/Login/firebase-config'; // ajuste o caminho conforme necessário
 import './Profile.css'; // Arquivo CSS para estilização
+import Sidebar from '../../components/sidebar/sidebar';
 
 const avatarOptions = [
     './avatar1.png',
@@ -94,61 +95,64 @@ const Profile: React.FC = () => {
     };
 
     return (
-        <div className="profile-container">
-            <div className="main-content">
-                <div className="profile-section">
-                    <div className="profile-form">
-                        <label>Nome:</label>
-                        {/* Campo de texto com o nome atual do usuário */}
-                        <input
-                            type="text"
-                            value={displayName} // Nome é exibido no input
-                            onChange={(e) => setDisplayName(e.target.value)} // Atualiza o estado ao alterar
-                            placeholder="Nome de usuário"
-                        />
-                        <label>Email:</label>
-                        {/* Campo de texto com o email atual do usuário */}
-                        <input
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)} // Atualiza o estado ao alterar
-                            placeholder="Email"
-                        />
-                        <label>Senha:</label>
-                        <input
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)} // Atualiza o estado ao alterar
-                            placeholder="Nova senha"
-                        />
-                        <button onClick={handleProfileUpdate}>Atualizar Perfil</button>
-                    </div>
-                    <div className="profile-picture-section">
-                        <div className="profile-picture-preview">
-                            {/* Exibição da foto de perfil ou avatar */}
-                            <img
-                                src={selectedAvatar || (profilePicture ? URL.createObjectURL(profilePicture) : 'default-profile.png')}
-                                alt="Profile"
-                                className="current-avatar"
+        <>
+            <Sidebar />
+            <div className="profile-container">
+                <div className="main-content">
+                    <div className="profile-section">
+                        <div className="profile-form">
+                            <label>Nome:</label>
+                            {/* Campo de texto com o nome atual do usuário */}
+                            <input
+                                type="text"
+                                value={displayName} // Nome é exibido no input
+                                onChange={(e) => setDisplayName(e.target.value)} // Atualiza o estado ao alterar
+                                placeholder="Nome de usuário"
                             />
+                            <label>Email:</label>
+                            {/* Campo de texto com o email atual do usuário */}
+                            <input
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)} // Atualiza o estado ao alterar
+                                placeholder="Email"
+                            />
+                            <label>Senha:</label>
+                            <input
+                                type="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)} // Atualiza o estado ao alterar
+                                placeholder="Nova senha"
+                            />
+                            <button onClick={handleProfileUpdate}>Atualizar Perfil</button>
                         </div>
-                        <h3>Escolha um avatar</h3>
-                        <div className="avatar-options">
-                            {/* Lista de avatares para o usuário escolher */}
-                            {avatarOptions.map((avatar, index) => (
+                        <div className="profile-picture-section">
+                            <div className="profile-picture-preview">
+                                {/* Exibição da foto de perfil ou avatar */}
                                 <img
-                                    key={index}
-                                    src={avatar}
-                                    alt={`Avatar ${index + 1}`}
-                                    className={`avatar-option ${selectedAvatar === avatar ? 'selected' : ''}`}
-                                    onClick={() => handleAvatarSelection(avatar)}
+                                    src={selectedAvatar || (profilePicture ? URL.createObjectURL(profilePicture) : 'default-profile.png')}
+                                    alt="Profile"
+                                    className="current-avatar"
                                 />
-                            ))}
+                            </div>
+                            <h3>Escolha um avatar</h3>
+                            <div className="avatar-options">
+                                {/* Lista de avatares para o usuário escolher */}
+                                {avatarOptions.map((avatar, index) => (
+                                    <img
+                                        key={index}
+                                        src={avatar}
+                                        alt={`Avatar ${index + 1}`}
+                                        className={`avatar-option ${selectedAvatar === avatar ? 'selected' : ''}`}
+                                        onClick={() => handleAvatarSelection(avatar)}
+                                    />
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

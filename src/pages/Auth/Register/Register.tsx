@@ -63,7 +63,7 @@ const Registro: React.FC = () => {
   return (
     <div className="register-page">
        <div className="logo">
-        <img src="logo.png"  width={"35vh"} height={"35vh"}/>
+       <Link to="/"><img src="logo.png"  width={"35vh"} height={"35vh"}/></Link> 
     </div>
 
        <div className="register-container"> 

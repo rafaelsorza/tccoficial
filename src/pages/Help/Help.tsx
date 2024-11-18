@@ -1,57 +1,83 @@
-import React from 'react';
-import './Help.css'; // Arquivo CSS para estilizar a tela de ajuda
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import './Help.css';
 import Sidebar from '../../components/sidebar/sidebar';
 
-const Ajuda: React.FC = () => {
-  return (
-    <>
-      <div className="side">
-  <Sidebar />
-</div>
+const HelpMenu: React.FC = () => {
+    const [openSection, setOpenSection] = useState<string | null>(null);
 
-<div className="help-container">
-  <Link to="/">
-    <img src="logo.png" width="35vh" height="35vh" alt="Logo" />
-  </Link>
-  <h1>Centro de Ajuda</h1>
-  <p>Bem-vindo ao nosso centro de ajuda! Aqui você encontrará respostas para as dúvidas mais comuns.</p>
+    const toggleSection = (section: string) => {
+        setOpenSection(prev => prev === section ? null : section);
+    };
 
-  <h2>Perguntas Frequentes</h2>
-  <ul>
-    <li><strong>Como faço para me cadastrar?</strong>
-      <p>Vá até a tela de cadastro, preencha os seus dados e siga as instruções.</p>
-    </li>
-    <li><strong>Como recupero minha senha?</strong>
-      <p>Clique no link "Esqueci minha senha" na tela de login e siga as instruções enviadas por e-mail.</p>
-    </li>
-    <li><strong>Como faço para registrar uma refeição ou exercício?</strong>
-      <p>Na tela principal, clique em "Adicionar Refeição" ou "Adicionar Exercício" e insira as informações necessárias.</p>
-    </li>
-    <li><strong>Como posso entrar em contato com o suporte?</strong>
-      <p>
-        Envie um e-mail para 
-        <a href="mailto:suporte@vitalityvision.com" target="_blank" rel="noopener noreferrer">
-          suporte@vitalityvision.com
-        </a> 
-        ou ligue para (11) 1234-5678.
-      </p>
-    </li>
-  </ul>
+    return (
+        <>
+        <Sidebar/>
+        <div className="help-menu-container">
+            <div className="menu-section" onClick={() => toggleSection('Como posso me cadastrar na plataforma?')}>
+                <div className="menu-title">Como posso me cadastrar na plataforma?</div>
+                {openSection === 'Como posso me cadastrar na plataforma?' && (
+                    <ul className="submenu">
+                        <li>Você pode se cadastrar clicando no botão de "Cadastrar" ou "Registrar" e preenchendo suas informações.</li>
+                    </ul>
+                )}
+            </div>
 
-  <h2>Outras Dúvidas?</h2>
-  <p>
-    Se você não encontrou a resposta que procura, entre em contato com nossa equipe de suporte através do e-mail ou telefone.
-  </p>
-  <p>
-    Você também pode nos encontrar no Instagram:
-    <a href="https://instagram.com/tccditec" target="_blank" rel="noopener noreferrer">
-      @tccditec
-    </a>.
-  </p>
-</div>
-    </>
-  );
-}
+            <div className="menu-section" onClick={() => toggleSection('Onde encontro informações sobre privacidade e segurança dos meus dados?')}>
+                <div className="menu-title">Onde encontro informações sobre privacidade e segurança dos meus dados?</div>
+                {openSection === 'Onde encontro informações sobre privacidade e segurança dos meus dados?' && (
+                    <ul className="submenu">
+                        <li>As informações sobre privacidade e segurança estão geralmente na seção de "Termos de Uso" ou "Política de Privacidade" do site.</li>
+                    </ul>
+                )}
+            </div>
 
-export default Ajuda;
+            <div className="menu-section" onClick={() => toggleSection('Existe um suporte ao cliente disponível em caso de dúvidas?')}>
+                <div className="menu-title">Existe um suporte ao cliente disponível em caso de dúvidas?</div>
+                {openSection === 'Existe um suporte ao cliente disponível em caso de dúvidas?' && (
+                    <ul className="submenu">
+                        <li>Sim, normalmente há um suporte ao cliente que pode ser contatado por e-mail, chat ou telefone.</li>
+                    </ul>
+                )}
+            </div>
+
+            <div className="menu-section" onClick={() => toggleSection('Como posso atualizar minhas informações pessoais?')}>
+                <div className="menu-title">Como posso atualizar minhas informações pessoais?</div>
+                {openSection === 'Como posso atualizar minhas informações pessoais?' && (
+                    <ul className="submenu">
+                        <li>Você pode atualizar suas informações acessando sua conta e editando os dados na seção "Perfil" ou "Configurações".</li>
+                    </ul>
+                )}
+            </div>
+
+            <div className="menu-section" onClick={() => toggleSection('O site oferece conteúdo em diferentes idiomas?')}>
+                <div className="menu-title">O site oferece conteúdo em diferentes idiomas?</div>
+                {openSection === 'O site oferece conteúdo em diferentes idiomas?' && (
+                    <ul className="submenu">
+                        <li>Sim, muitos sites têm a opção de escolher o idioma no canto superior ou inferior da página.</li>
+                    </ul>
+                )}
+            </div>
+
+            <div className="menu-section" onClick={() => toggleSection('Quais recursos interativos estão disponíveis')}>
+                <div className="menu-title">Quais recursos interativos estão disponíveis</div>
+                {openSection === 'Quais recursos interativos estão disponíveis' && (
+                    <ul className="submenu">
+                        <li>Você pode encontrar fóruns, chats ao vivo ou grupos de discussão, dependendo da plataforma.</li>
+                    </ul>
+                )}
+            </div>
+
+            <div className="menu-section" onClick={() => toggleSection('Onde posso encontrar avaliações ou depoimentos de outros usuários?')}>
+                <div className="menu-title">Onde posso encontrar avaliações ou depoimentos de outros usuários?</div>
+                {openSection === 'Onde posso encontrar avaliações ou depoimentos de outros usuários?' && (
+                    <ul className="submenu">
+                        <li>As avaliações costumam estar na seção de "Testemunhos" ou "Avaliações" do site. Você também pode verificar redes sociais ou fóruns externos.</li>
+                    </ul>
+                )}
+            </div>
+        </div>
+        </>
+    );
+};
+
+export default HelpMenu;

@@ -86,6 +86,8 @@ const Recipes: React.FC = () => {
       <div className="container">
         <Sidebar />
         <div className="left2">
+
+
           <div className="menu-recipes">
             {categories.map((category) => (
               <button
@@ -98,6 +100,8 @@ const Recipes: React.FC = () => {
               </button>
             ))}
           </div>
+
+
           <div className="cards-section">
             {currentRecipes.map((recipe, index) => (
               <div key={index} className="recipe-card-container">
@@ -105,12 +109,18 @@ const Recipes: React.FC = () => {
               </div>
             ))}
           </div>
-        </div>
-        <div className="right">
+
+        </div> 
+
+
+        
+        <div className="detalhes"> 
           <div className="profile-section">
             <RecipeDetails recipe={selectedRecipe} />
           </div>
         </div>
+
+
       </div>
     </>
   );

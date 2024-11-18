@@ -147,10 +147,10 @@ const Refeicoes: React.FC = () => {
     <Sidebar/>
     <div className="dashboard1">
       <div className="main1">
-        <div className="left1">
+   
 
           <div className="box"> 
-            <p className='title-search'>Pesquisa de Alimentos</p>
+           
           <div className="search-container">
             <input
               type="text"
@@ -179,10 +179,10 @@ const Refeicoes: React.FC = () => {
         </div>
           </div>
           
-        <div className="right1">
+  
           <div className="box2"> 
           <div className="charts">
-            <h2>Gráfico de Valores Nutricionais</h2>
+         
             <div className="progress-bars">
               <div className="progress-bar">
                 <span>Calorias: {combinedNutritionalValues.totalCalories} kcal</span>
@@ -213,8 +213,8 @@ const Refeicoes: React.FC = () => {
           </div>
           </div>
         </div>
-      </div>
-    </div>
+     
+  
     </>
   );
 };
