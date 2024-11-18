@@ -24,17 +24,16 @@
   margin-top: 5vh; /* Espaçamento superior */
   gap: 8vh; /* Espaço entre logo e itens de navegação */
   align-items: center;
- 
   flex-direction: column;
   width: 100%; /* Menu ocupa a largura total da sidebar */
 }
 
 .menu2 {
+  cursor: pointer;
   display: flex;
   margin-top: 10vh; /* Espaçamento superior */
   gap: 3px; /* Espaço entre logo e itens de navegação */
   align-items: center;
-
   flex-direction: column;
   width: 100%; /* Menu ocupa a largura total da sidebar */
 }

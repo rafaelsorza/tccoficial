@@ -2,13 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { LogoutButton } from '../btnLogout/btnLogout';
 import { AiOutlineUser } from "react-icons/ai";
-
 import { LuLayoutDashboard, LuBadgeHelp } from "react-icons/lu";
-
 import { MdOutlineFastfood } from "react-icons/md";
 import { HiMiniPencilSquare } from "react-icons/hi2";
-
-
+import { MdOutlineHelpOutline } from "react-icons/md";
 
 
 
@@ -31,25 +28,16 @@ const Sidebar: React.FC = () => {
             <li><Link to="/dashboard">< LuLayoutDashboard /></Link></li>
             <li><Link to="/recipes"><MdOutlineFastfood /></Link></li>
             <li><Link to="/reifs"><HiMiniPencilSquare /></Link></li>
-            <li><Link to="/ajuda"><LuBadgeHelp /></Link></li>
+            <li><Link to="/ajuda"><MdOutlineHelpOutline /></Link></li>
 
           </ul>
         </div>
 
-        <div className="menu2"> 
-          <li><Link to="/perfil"><AiOutlineUser  /></Link></li>
-      <LogoutButton/>
-          </div>
-
-
-
-
-
-
-
+        <div className="menu2">
+          <li><Link to="/perfil"><AiOutlineUser /></Link></li>
+          <LogoutButton />
+        </div>
       </div>
-
-
     </div>
 
   );

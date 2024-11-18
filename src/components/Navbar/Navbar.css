@@ -12,6 +12,8 @@
 
 .navbar-brand {
     margin-left: 7.5vh;
+    width: 3000px; /* Tamanho da imagem */
+    height: auto;
 }
 
 .navbar-buttons {
