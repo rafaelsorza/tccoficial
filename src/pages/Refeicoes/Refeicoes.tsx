@@ -3,8 +3,9 @@ import api from './services/api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import NutritionalChart from '../../components/NutritionChart/NutritionChart';
-import './reifs.css';
 import Sidebar from '../../components/sidebar/sidebar';
+import './reifs.css';
+
 interface Food {
   id: string;
   product_name: string;
@@ -40,6 +41,7 @@ const Refeicoes: React.FC = () => {
   const [selectedFoods, setSelectedFoods] = useState<Food[]>([]);
   const [meals, setMeals] = useState<NutritionalValues[]>([]);
 
+  // Load meals from localStorage on initial render
   useEffect(() => {
     const storedMeals = localStorage.getItem('meals');
     const storedTimestamp = localStorage.getItem('mealsTimestamp');
@@ -58,11 +60,15 @@ const Refeicoes: React.FC = () => {
     }
   }, []);
 
-  const saveMealsToLocalStorage = (meals: NutritionalValues[]) => {
+  // Save meals and nutritional values to localStorage whenever they change
+  useEffect(() => {
     const currentTime = new Date().getTime();
     localStorage.setItem('meals', JSON.stringify(meals));
     localStorage.setItem('mealsTimestamp', JSON.stringify(currentTime));
-  };
+
+    const combinedValues = calculateCombinedNutritionalValues(meals);
+    localStorage.setItem('exportedChartData', JSON.stringify(combinedValues));
+  }, [meals]);
 
   const fetchFoods = async (searchTerm: string) => {
     try {
@@ -104,6 +110,18 @@ const Refeicoes: React.FC = () => {
     return selectedFoods.some(f => f.id === food.id);
   };
 
+  const calculateCombinedNutritionalValues = (meals: NutritionalValues[]): NutritionalValues => {
+    return meals.reduce(
+      (acc, meal) => ({
+        totalCalories: acc.totalCalories + meal.totalCalories,
+        totalProtein: acc.totalProtein + meal.totalProtein,
+        totalVitamins: acc.totalVitamins + meal.totalVitamins,
+        totalCarbohydrates: acc.totalCarbohydrates + meal.totalCarbohydrates,
+      }),
+      { totalCalories: 0, totalProtein: 0, totalVitamins: 0, totalCarbohydrates: 0 }
+    );
+  };
+
   const calculateNutritionalValues = (foods: Food[]): NutritionalValues => {
     const totalCalories = foods.reduce((acc, food) => acc + food.calories, 0);
     const totalProtein = foods.reduce((acc, food) => acc + food.protein, 0);
@@ -120,9 +138,7 @@ const Refeicoes: React.FC = () => {
 
   const addMeal = () => {
     const nutritionalValues = calculateNutritionalValues(selectedFoods);
-    const updatedMeals = [...meals, nutritionalValues];
-    setMeals(updatedMeals);
-    saveMealsToLocalStorage(updatedMeals);
+    setMeals([...meals, nutritionalValues]);
     setSelectedFoods([]);
   };
 
@@ -130,91 +146,55 @@ const Refeicoes: React.FC = () => {
     setMeals([]);
     localStorage.removeItem('meals');
     localStorage.removeItem('mealsTimestamp');
+    localStorage.removeItem('exportedChartData');
   };
 
-  const combinedNutritionalValues = meals.reduce(
-    (acc, meal) => ({
-      totalCalories: acc.totalCalories + meal.totalCalories,
-      totalProtein: acc.totalProtein + meal.totalProtein,
-      totalVitamins: acc.totalVitamins + meal.totalVitamins,
-      totalCarbohydrates: acc.totalCarbohydrates + meal.totalCarbohydrates,
-    }),
-    { totalCalories: 0, totalProtein: 0, totalVitamins: 0, totalCarbohydrates: 0 }
-  );
+  const combinedNutritionalValues = calculateCombinedNutritionalValues(meals);
 
   return (
-<>
-    <Sidebar/>
-    <div className="dashboard1">
-      <div className="main1">
-   
-
-          <div className="box"> 
-           
-          <div className="search-container">
-            <input
-              type="text"
-              value={query}
-              onChange={handleSearch}
-              placeholder="Digite o nome do alimento..."
-              className="search-input"
-            />
-            <FontAwesomeIcon icon={faSearch} className="search-icon" />
-          </div>
-          <div className="food-list-container">
-            <ul className="food-list">
-              {foods.map(food => (
-                <li
-                  key={food.id}
-                  onClick={() => handleSelect(food)}
-                  className={`food-item ${isSelected(food) ? 'selected' : ''}`}
-                >
-                  {food.product_name}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <button onClick={addMeal} className="add-meal-button">Adicionar Refeição</button>
-          <button onClick={clearChart} className="clear-chart-button">Limpar Gráfico</button>
-        </div>
-          </div>
-          
-  
-          <div className="box2"> 
-          <div className="charts">
-         
-            <div className="progress-bars">
-              <div className="progress-bar">
-                <span>Calorias: {combinedNutritionalValues.totalCalories} kcal</span>
-                <div className="progress">
-                  <div className="progress-bar-fill" style={{ width: `${combinedNutritionalValues.totalCalories}px` }}></div>
-                </div>
-              </div>
-              <div className="progress-bar">
-                <span>Proteínas: {combinedNutritionalValues.totalProtein} g</span>
-                <div className="progress">
-                  <div className="progress-bar-fill" style={{ width: `${combinedNutritionalValues.totalProtein}px` }}></div>
-                </div>
-              </div>
-              <div className="progress-bar">
-                <span>Vitaminas: {combinedNutritionalValues.totalVitamins}</span>
-                <div className="progress">
-                  <div className="progress-bar-fill" style={{ width: `${combinedNutritionalValues.totalVitamins}px` }}></div>
-                </div>
-              </div>
-              <div className="progress-bar">
-                <span>Carboidratos: {combinedNutritionalValues.totalCarbohydrates}</span>
-                <div className="progress">
-                  <div className="progress-bar-fill" style={{ width: `${combinedNutritionalValues.totalCarbohydrates}px` }}></div>
-                </div>
-              </div>
+    <>
+      <Sidebar />
+      <div className="dashboard1">
+        <div className="main1">
+          <div className="box">
+            <div className="search-container">
+              <input
+                type="text"
+                value={query}
+                onChange={handleSearch}
+                placeholder="Digite o nome do alimento..."
+                className="search-input"
+              />
+              <FontAwesomeIcon icon={faSearch} className="search-icon" />
             </div>
+            <div className="food-list-container">
+              <ul className="food-list">
+                {foods.map(food => (
+                  <li
+                    key={food.id}
+                    onClick={() => handleSelect(food)}
+                    className={`food-item ${isSelected(food) ? 'selected' : ''}`}
+                  >
+                    {food.product_name}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <button onClick={addMeal} className="add-meal-button">
+              Adicionar Refeição
+            </button>
+            <button onClick={clearChart} className="clear-chart-button">
+              Limpar Gráfico
+            </button>
+          </div>
+        </div>
+
+        <div className="box2">
+          <div className="charts">
             <NutritionalChart nutritionalValues={combinedNutritionalValues} />
           </div>
-          </div>
         </div>
-     
-  
+      </div>
     </>
   );
 };

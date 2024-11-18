@@ -31,7 +31,7 @@
 .menu2 {
   cursor: pointer;
   display: flex;
-  margin-top: 10vh; /* Espaçamento superior */
+  margin-top: 40vh; /* Espaçamento superior */
   gap: 3px; /* Espaço entre logo e itens de navegação */
   align-items: center;
   flex-direction: column;
