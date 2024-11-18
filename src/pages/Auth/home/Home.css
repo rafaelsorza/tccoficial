@@ -372,14 +372,15 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
-    padding: 20px;
+    padding: 50px;
     gap: 20px;
   }
   
+
   .itemh {
     text-align: center;
     width: 250px; /* Ajuste conforme necessário */
-    padding: 15px;
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     background-color: #fff;
@@ -439,28 +440,45 @@ body {
   .image1 {
     width: 3000 px; /* Tamanho da imagem */
     height: auto;
-    margin-left: 200px;
+    margin-left: 20.5vh;
   }
 
   .image2 {
     width: 3000 px; /* Tamanho da imagem */
     height: auto;
-    margin-right: 200px;
+    margin-right: 10.5vh;
   }
 
   .text1 {
     max-width: 500px; /* Limita a largura do texto */
-    margin-right: 300px;
+    margin-right: 10.5vh;
   }
 
   .text2 {
     max-width: 500px; /* Limita a largura do texto */
-    margin-left: 300px;
+    margin-left: 20.5vh;
   }
+
+
+  .text1 h2 p {
+    /* Propriedades CSS desejadas */
+    color: #50C299; /* Exemplo: mudar a cor do texto */
+    font-size: 1.5em; /* Exemplo: mudar o tamanho da fonte */
+    font-weight: bold; /* Exemplo: deixar o texto em negrito */
+    margin: 0; /* Exemplo: remover a margem padrão do <p> */
+}
+
+.text2 h2 p {
+  /* Propriedades CSS desejadas */
+  color: #50C299; /* Exemplo: mudar a cor do texto */
+  font-size: 1.5em; /* Exemplo: mudar o tamanho da fonte */
+  font-weight: bold; /* Exemplo: deixar o texto em negrito */
+  margin: 0; /* Exemplo: remover a margem padrão do <p> */
+}
 
   h2 {
     font-size: 1.5rem;
-    margin-bottom: 10px; /* Espaço entre o título e o texto */
+    margin-bottom: 5px; /* Espaço entre o título e o texto */
   }
   
   p {
