@@ -27,8 +27,86 @@ const Recipes: React.FC = () => {
       {
         name: 'Panquecas',
         kcal: '19kcal',
-        categoria: 'leve e rápido',
-        image: './panqueca.png', // Verifique se a imagem está acessível
+        categoria: 'Leve e prática',
+        image: './panqueca.jpg', // Verifique se a imagem está acessível
+        description: '',
+        ingredients: [
+          '2 xícaras de farinha',
+          '2 ovos',
+          '1 xícara de leite',
+          '1 colher de sopa de açúcar',
+          '1 colher de chá de fermento'
+        ],
+        instructions: 'Misture todos os ingredientes...'
+      },
+      {
+        name: 'Panquecas',
+        kcal: '19kcal',
+        categoria: 'Leve e prática',
+        image: './panqueca.jpg', // Verifique se a imagem está acessível
+        description: '',
+        ingredients: [
+          '2 xícaras de farinha',
+          '2 ovos',
+          '1 xícara de leite',
+          '1 colher de sopa de açúcar',
+          '1 colher de chá de fermento'
+        ],
+        instructions: 'Misture todos os ingredientes...'
+      },
+
+      {
+        name: 'Panquecas',
+        kcal: '19kcal',
+        categoria: 'Leve e prática',
+        image: './panqueca.jpg', // Verifique se a imagem está acessível
+        description: 'Deliciosas panquecas...',
+        ingredients: [
+          '2 xícaras de farinha',
+          '2 ovos',
+          '1 xícara de leite',
+          '1 colher de sopa de açúcar',
+          '1 colher de chá de fermento'
+        ],
+        instructions: 'Misture todos os ingredientes...'
+      },
+
+      {
+        name: 'Panquecas',
+        kcal: '19kcal',
+        categoria: 'Leve e prática',
+        image: './panqueca.jpg', // Verifique se a imagem está acessível
+        description: 'Deliciosas panquecas...',
+        ingredients: [
+          '2 xícaras de farinha',
+          '2 ovos',
+          '1 xícara de leite',
+          '1 colher de sopa de açúcar',
+          '1 colher de chá de fermento'
+        ],
+        instructions: 'Misture todos os ingredientes...'
+      },
+
+      {
+        name: 'Panquecas',
+        kcal: '19kcal',
+        categoria: 'Leve e prática',
+        image: './panqueca.jpg', // Verifique se a imagem está acessível
+        description: 'Deliciosas panquecas...',
+        ingredients: [
+          '2 xícaras de farinha',
+          '2 ovos',
+          '1 xícara de leite',
+          '1 colher de sopa de açúcar',
+          '1 colher de chá de fermento'
+        ],
+        instructions: 'Misture todos os ingredientes...'
+      },
+      {
+        name: 'Panquecas',
+        kcal: '19kcal',
+        categoria: 'Leve e prática',
+        image: './panqueca.jpg', // Verifique se a imagem está acessível
         description: 'Deliciosas panquecas...',
         ingredients: [
           '2 xícaras de farinha',
@@ -42,6 +120,96 @@ const Recipes: React.FC = () => {
       // Adicione mais receitas de café da manhã se necessário
     ],
     lunch: [
+      {
+        name: 'Lasanha',
+        kcal: '19kcal',
+        categoria: 'leve e rápido',
+        image: './lasanha.png', // Corrija o caminho da imagem se necessário
+        description: 'Uma saborosa lasanha...',
+        ingredients: [
+          '500g de carne moída',
+          '2 xícaras de molho de tomate',
+          '500g de massa para lasanha',
+          '200g de queijo mussarela',
+          '100g de queijo parmesão'
+        ],
+        instructions: 'Monte as camadas da lasanha...'
+      },
+      {
+        name: 'Lasanha',
+        kcal: '19kcal',
+        categoria: 'leve e rápido',
+        image: './lasanha.png', // Corrija o caminho da imagem se necessário
+        description: 'Uma saborosa lasanha...',
+        ingredients: [
+          '500g de carne moída',
+          '2 xícaras de molho de tomate',
+          '500g de massa para lasanha',
+          '200g de queijo mussarela',
+          '100g de queijo parmesão'
+        ],
+        instructions: 'Monte as camadas da lasanha...'
+      },
+      {
+        name: 'Lasanha',
+        kcal: '19kcal',
+        categoria: 'leve e rápido',
+        image: './lasanha.png', // Corrija o caminho da imagem se necessário
+        description: 'Uma saborosa lasanha...',
+        ingredients: [
+          '500g de carne moída',
+          '2 xícaras de molho de tomate',
+          '500g de massa para lasanha',
+          '200g de queijo mussarela',
+          '100g de queijo parmesão'
+        ],
+        instructions: 'Monte as camadas da lasanha...'
+      },
+      {
+        name: 'Lasanha',
+        kcal: '19kcal',
+        categoria: 'leve e rápido',
+        image: './lasanha.png', // Corrija o caminho da imagem se necessário
+        description: 'Uma saborosa lasanha...',
+        ingredients: [
+          '500g de carne moída',
+          '2 xícaras de molho de tomate',
+          '500g de massa para lasanha',
+          '200g de queijo mussarela',
+          '100g de queijo parmesão'
+        ],
+        instructions: 'Monte as camadas da lasanha...'
+      },
+      {
+        name: 'Lasanha',
+        kcal: '19kcal',
+        categoria: 'leve e rápido',
+        image: './lasanha.png', // Corrija o caminho da imagem se necessário
+        description: 'Uma saborosa lasanha...',
+        ingredients: [
+          '500g de carne moída',
+          '2 xícaras de molho de tomate',
+          '500g de massa para lasanha',
+          '200g de queijo mussarela',
+          '100g de queijo parmesão'
+        ],
+        instructions: 'Monte as camadas da lasanha...'
+      },
+      {
+        name: 'Lasanha',
+        kcal: '19kcal',
+        categoria: 'leve e rápido',
+        image: './lasanha.png', // Corrija o caminho da imagem se necessário
+        description: 'Uma saborosa lasanha...',
+        ingredients: [
+          '500g de carne moída',
+          '2 xícaras de molho de tomate',
+          '500g de massa para lasanha',
+          '200g de queijo mussarela',
+          '100g de queijo parmesão'
+        ],
+        instructions: 'Monte as camadas da lasanha...'
+      },
       {
         name: 'Lasanha',
         kcal: '19kcal',
@@ -73,7 +241,78 @@ const Recipes: React.FC = () => {
           '1 litro de caldo de legumes'
         ],
         instructions: 'Cozinhe todos os ingredientes...'
-      }
+      },
+      {
+        name: 'Sopa de Legumes',
+        kcal: '19kcal',
+        categoria: 'leve e rápido',
+        image: 'https://example.com/sopa-de-legumes.jpg', // Certifique-se de que essa URL esteja correta
+        description: 'Uma sopa nutritiva...',
+        ingredients: [
+          '2 cenouras',
+          '2 batatas',
+          '1 abobrinha',
+          '1 litro de caldo de legumes'
+        ],
+        instructions: 'Cozinhe todos os ingredientes...'
+      },
+      {
+        name: 'Sopa de Legumes',
+        kcal: '19kcal',
+        categoria: 'leve e rápido',
+        image: 'https://example.com/sopa-de-legumes.jpg', // Certifique-se de que essa URL esteja correta
+        description: 'Uma sopa nutritiva...',
+        ingredients: [
+          '2 cenouras',
+          '2 batatas',
+          '1 abobrinha',
+          '1 litro de caldo de legumes'
+        ],
+        instructions: 'Cozinhe todos os ingredientes...'
+      },
+      {
+        name: 'Sopa de Legumes',
+        kcal: '19kcal',
+        categoria: 'leve e rápido',
+        image: 'https://example.com/sopa-de-legumes.jpg', // Certifique-se de que essa URL esteja correta
+        description: 'Uma sopa nutritiva...',
+        ingredients: [
+          '2 cenouras',
+          '2 batatas',
+          '1 abobrinha',
+          '1 litro de caldo de legumes'
+        ],
+        instructions: 'Cozinhe todos os ingredientes...'
+      },
+      {
+        name: 'Sopa de Legumes',
+        kcal: '19kcal',
+        categoria: 'leve e rápido',
+        image: 'https://example.com/sopa-de-legumes.jpg', // Certifique-se de que essa URL esteja correta
+        description: 'Uma sopa nutritiva...',
+        ingredients: [
+          '2 cenouras',
+          '2 batatas',
+          '1 abobrinha',
+          '1 litro de caldo de legumes'
+        ],
+        instructions: 'Cozinhe todos os ingredientes...'
+      },
+      {
+        name: 'Sopa de Legumes',
+        kcal: '19kcal',
+        categoria: 'leve e rápido',
+        image: 'https://example.com/sopa-de-legumes.jpg', // Certifique-se de que essa URL esteja correta
+        description: 'Uma sopa nutritiva...',
+        ingredients: [
+          '2 cenouras',
+          '2 batatas',
+          '1 abobrinha',
+          '1 litro de caldo de legumes'
+        ],
+        instructions: 'Cozinhe todos os ingredientes...'
+      },
+
       // Adicione mais receitas de jantar se necessário
     ]
   };

@@ -45,6 +45,7 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 2vh;
+    margin-left: 10vh;
 
 
 
@@ -56,18 +57,19 @@
     flex-direction: column;
     background-color: rgb(255, 255, 255);
     border-radius: 5vh;
-    height: 40vh;
-    width: 32vh;
+    height: 35vh;
+    width: 25vh;
   }
   
   .card-image{
+    margin: auto;
     height: 10vh;
     width: 10vh;
   }
   
   .title-recipe{
     font-weight: bold;
-    font-size: 3vh;
+    font-size: 2vh;
     color: rgb(0, 0, 0);
     margin-top: 0;
   }
@@ -75,8 +77,10 @@
   .kcal {
   color: #35ad7f;
   margin-top: 0;
-  font-size: 3vh;
+  font-size: 2vh;
   }
+
+  
   
 
 .detalhes{
@@ -84,12 +88,34 @@
   align-items: center;
   background-color: azure;
   justify-content: center;
+  height: 97%;
+  width: 50vh;
+  margin-top: 2vh;
+  border-radius: 5vh;
+  margin-bottom: 2vh;
+  margin-right: 2vh;
+ 
 
 }
 
+.details-style{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  margin-bottom: 25vh;
+}
+
+.details-image{
+  width: 25vh;
+  height: 25vh;
+
+}
 .con{
   display: flex;
-  margin-top: 10vh;
   height: 100%;
   width: 100%;
   align-items: center;
