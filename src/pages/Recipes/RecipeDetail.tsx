@@ -28,7 +28,7 @@ const RecipeDetails: React.FC<RecipeDetailsProps> = ({ recipe }) => {
           <li key={index}>{ingredient}</li>
         ))}
       </ul>
-      <h3>Modo de preparo</h3>
+      <h3>Como preparar</h3>
       <p>{recipe.instructions}</p>
     </div>
   );
