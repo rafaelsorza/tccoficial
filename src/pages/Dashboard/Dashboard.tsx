@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { getAuth } from 'firebase/auth'; // Importando Firebase Auth
 import Sidebar from '../../components/sidebar/sidebar';
 import NavUser from '../../components/navUser/navUser';
-import ReusableChart from '../Refeicoes/ResaubleChart';
 import DisplayDate from '../../components/DisplayDate/DisplayDate';
 
 interface NutritionalValues {

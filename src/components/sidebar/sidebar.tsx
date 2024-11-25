@@ -27,7 +27,7 @@ const Sidebar: React.FC = () => {
           <ul>
             <li><Link to="/dashboard">< LuLayoutDashboard /></Link></li>
             <li><Link to="/recipes"><MdOutlineFastfood /></Link></li>
-            <li><Link to="/reifs"><HiMiniPencilSquare /></Link></li>
+            <li><Link to="/calorias"><HiMiniPencilSquare /></Link></li>
             <li><Link to="/ajuda"><MdOutlineHelpOutline /></Link></li>
 
           </ul>

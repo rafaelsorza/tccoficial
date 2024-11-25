@@ -71,7 +71,7 @@ function Home() {
 
 
       <div className="containerimg">
-        <div className="section left">
+        <div className="section">
           <img src="comendo.png" alt="Imagem à esquerda" className="image1" />
           <div className="text1">
             <h2>Nosso site permite que você faça o seu <p>Monitoramento de Calorias</p></h2>
@@ -79,7 +79,7 @@ function Home() {
           </div>
         </div>
 
-        <div className="section right">
+        <div className="section">
           <div className="text2">
           <h2> No nosso aplicativo você também encontra funções como o <p>Registro de Atividades</p></h2>
             <p>O Resgistro de Atividades do nosso aplicativo registra quantos passos você dá ao longo do dia, usando os sensores do seu celular. Ele ajuda a acompanhar sua atividade física, mostrando não só o número de passos, mas também a distância percorrida e as calorias queimadas. É uma forma simples de monitorar seu progresso e te incentivar a se mover mais, ajudando a alcançar suas metas de saúde e bem-estar.</p>

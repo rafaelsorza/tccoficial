@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getAuth, updateProfile, updateEmail, updatePassword } from 'firebase/auth';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { db } from '../Auth/Login/firebase-config'; // ajuste o caminho conforme necessário
+import { db } from '../../firebase-config'; // ajuste o caminho conforme necessário
 import './Profile.css'; // Arquivo CSS para estilização
 import Sidebar from '../../components/sidebar/sidebar';
 

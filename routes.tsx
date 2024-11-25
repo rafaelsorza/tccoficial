@@ -6,7 +6,7 @@ import Login from './src/pages/Auth/Login/Login';
 import Registro from './src/pages/Auth/Register/Register';
 import Dashboard from './src/pages/Dashboard/Dashboard';
 import Recipes from './src/pages/Recipes/Recipes';
-import Refeicoes from './src/pages/Refeicoes/Refeicoes';
+import Calorias from './src/pages/Calorias/Calorias';
 import Ajuda from './src/pages/Help/Help';
 import Profile from './src/pages/Profile/Profile';
 
@@ -25,7 +25,7 @@ const AppRoutes: React.FC = () => {
                <Route element={<PrivateRoute />}>
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/recipes" element={<Recipes />} />
-                <Route path="/reifs" element={<Refeicoes />} />
+                <Route path="/calorias" element={<Calorias />} />
                 <Route path="/ajuda" element={<Ajuda />} />
                 <Route path="/perfil" element={<Profile />} />
                 
