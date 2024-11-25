@@ -78,6 +78,7 @@ const Recipes: React.FC = () => {
     ]
   };
 
+
   const categories = Object.keys(recipes);
   const currentRecipes = recipes[selectedCategory].slice(0, 6);
 
@@ -85,43 +86,49 @@ const Recipes: React.FC = () => {
     <>
       <div className="container-dash">
         <Sidebar />
-        <div className="left2">
 
 
-          <div className="menu-recipes">
-            {categories.map((category) => (
-              <button
-                key={category}
-                className={selectedCategory === category ? 'active' : ''}
-                onClick={() => setSelectedCategory(category)}
-              >
-                <FontAwesomeIcon icon={category === 'breakfast' ? faCoffee : category === 'lunch' ? faUtensils : faMoon} />
-                {category === 'breakfast' ? 'Café da Manhã' : category === 'lunch' ? 'Almoço' : 'Jantar'}
-              </button>
-            ))}
-          </div>
 
-
-          <div className="cards-section">
-            {currentRecipes.map((recipe, index) => (
-              <div key={index} className="recipe-card-container">
-                <RecipeCard recipe={recipe} onClick={setSelectedRecipe} />
-              </div>
-            ))}
-          </div>
-
-        </div> 
-
-
-        
-        <div className="detalhes"> 
-          <div className="profile-section">
-            <RecipeDetails recipe={selectedRecipe} />
-          </div>
+        <div className="menu-recipes">
+          {categories.map((category) => (
+            <button
+              key={category}
+              className={selectedCategory === category ? 'active' : ''}
+              onClick={() => setSelectedCategory(category)}
+            >
+              <FontAwesomeIcon icon={category === 'breakfast' ? faCoffee : category === 'lunch' ? faUtensils : faMoon} />
+              {category === 'breakfast' ? 'Café da Manhã' : category === 'lunch' ? 'Almoço' : 'Jantar'}
+            </button>
+          ))}
         </div>
 
+        <div className="con">
+           <div className="cards-section">
+          {currentRecipes.map((recipe, index) => (
+            <div key={index} className="recipe-card-container">
+              <RecipeCard recipe={recipe} onClick={setSelectedRecipe} />
+            </div>
+          ))}
+        </div>
 
+         <div className="detalhes">
+        <RecipeDetails recipe={selectedRecipe} />
       </div>
+        </div>
+
+     
+  </div>
+
+      
+
+  
+
+
+
+     
+
+
+
     </>
   );
 };
