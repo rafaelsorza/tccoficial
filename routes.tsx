@@ -6,9 +6,10 @@ import Login from './src/pages/Auth/Login/Login';
 import Registro from './src/pages/Auth/Register/Register';
 import Dashboard from './src/pages/Dashboard/Dashboard';
 import Recipes from './src/pages/Recipes/Recipes';
-import Calorias from './src/pages/Calorias/Calorias';
+import CaloriasDev from './src/pages/Calorias/CaloriasDev';
 import Ajuda from './src/pages/Help/Help';
 import Profile from './src/pages/Profile/Profile';
+import CaloriasUsuario from './src/pages/Calorias/CaloriasUsuario';
 
 
 const AppRoutes: React.FC = () => {
@@ -21,20 +22,18 @@ const AppRoutes: React.FC = () => {
                 <Route path="/registro" element={<Registro />} />
 
 
-        
-               <Route element={<PrivateRoute />}>
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/recipes" element={<Recipes />} />
-                <Route path="/calorias" element={<Calorias />} />
-                <Route path="/ajuda" element={<Ajuda />} />
-                <Route path="/perfil" element={<Profile />} />
-                
+                <Route element={<PrivateRoute />}>
+                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/recipes" element={<Recipes />} />
+                    <Route path="/caloriasusuario" element={<CaloriasUsuario />} />
+                    <Route path="/ajuda" element={<Ajuda />} />
+                    <Route path="/perfil" element={<Profile />} />
+                    <Route path="/caloriasdev" element={<CaloriasDev />} />
 
-             
-</Route>
+                </Route>
             </Routes>
         </Router>
-        
+
 
     );
 }
