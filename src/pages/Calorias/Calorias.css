@@ -220,3 +220,69 @@
   background-color: #f44336;
 }
 
+/* Estilo exclusivo para a página principal */
+.main-page {
+  display: flex;
+  flex-direction: column; /* Itens em coluna */
+  align-items: center; /* Centraliza horizontalmente */
+  justify-content: center; /* Centraliza verticalmente */
+  gap: 20px; /* Espaçamento entre os elementos */
+  padding: 20px;
+  min-height: 100vh; /* Ocupa toda a altura da tela */
+  background-color: #f4f4f4; /* Cor de fundo suave */
+}
+
+/* Barra de pesquisa */
+.main-page .search-bar {
+  width: 100%;
+  max-width: 500px; /* Largura máxima */
+}
+
+.main-page .search-bar input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+/* Lista de alimentos */
+.main-page .food-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 600px;
+}
+
+.main-page .food-item {
+  display: flex;
+  justify-content: space-between; /* Espaço entre o nome e o botão */
+  align-items: center;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+}
+
+.main-page .food-item button {
+  padding: 8px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.main-page .food-item button:hover {
+  background-color: #45A049;
+}
+
+/* Gráfico */
+.main-page .chart-container {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+

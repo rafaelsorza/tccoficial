@@ -42,29 +42,34 @@ const CaloriasUsuario: React.FC = () => {
   ];
 
   return (
-    <div>
-        <Sidebar />
+    <div className="main-page">
+      <Sidebar />
       <div className="search-bar">
         <input
           type="text"
-          placeholder="Pesquise alimentos..."
+          placeholder="Pesquisar alimentos..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
-
       <ul className="food-list">
-        {foods
-          .filter((food) => food.name.toLowerCase().includes(searchQuery.toLowerCase()))
-          .map((food) => (
-            <li key={food.id} className="food-item">
-              <span>{food.name} - {food.calories} Calorias</span>
-              <button onClick={() => handleAddFood(food)}>Adicionar</button>
-            </li>
-          ))}
+        {searchQuery.trim() === '' ? (
+          <p>Digite algo na barra de pesquisa para encontrar alimentos.</p>
+        ) : (
+          foods
+            .filter((food) =>
+              food.name.toLowerCase().includes(searchQuery.toLowerCase())
+            )
+            .map((food) => (
+              <li key={food.id} className="food-item">
+                <span>
+                  {food.name} - {food.calories} Calorias
+                </span>
+                <button onClick={() => handleAddFood(food)}>Adicionar</button>
+              </li>
+            ))
+        )}
       </ul>
-
-      {/* Gráfico usando Recharts */}
       <div className="chart-container">
         <h2>Nutrição do Dia</h2>
         <BarChart
