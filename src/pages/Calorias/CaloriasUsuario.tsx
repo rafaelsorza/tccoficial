@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { db } from '../../firebase-config'; // Configuração do Firebase
 import { collection, getDocs } from 'firebase/firestore'; // Funções do Firestore
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts'; // Biblioteca de gráficos
+import { PieChart, Pie, Tooltip, Cell } from 'recharts'; // Biblioteca de gráficos
 import Sidebar from '../../components/sidebar/sidebar';
 
 interface Food {
@@ -36,10 +36,13 @@ const CaloriasUsuario: React.FC = () => {
 
   // Dados para o gráfico
   const chartData = [
-    { name: 'Calorias', valor: selectedFoods.reduce((acc, food) => acc + food.calories, 0) },
-    { name: 'Gorduras', valor: selectedFoods.reduce((acc, food) => acc + food.fat, 0) },
-    { name: 'Proteínas', valor: selectedFoods.reduce((acc, food) => acc + food.protein, 0) },
+    { name: 'Calorias', value: selectedFoods.reduce((acc, food) => acc + food.calories, 0) },
+    { name: 'Gorduras', value: selectedFoods.reduce((acc, food) => acc + food.fat, 0) },
+    { name: 'Proteínas', value: selectedFoods.reduce((acc, food) => acc + food.protein, 0) },
   ];
+
+  // Cores para o gráfico
+  const COLORS = ['#0088FE', '#00C49F', '#FFBB28'];
 
   return (
     <div className="main-page">
@@ -72,19 +75,24 @@ const CaloriasUsuario: React.FC = () => {
       </ul>
       <div className="chart-container">
         <h2>Nutrição do Dia</h2>
-        <BarChart
-          width={600}
-          height={300}
-          data={chartData}
-          margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
+        <PieChart width={600} height={300}>
+          <Pie
+            data={chartData}
+            dataKey="value"
+            nameKey="name"
+            cx="50%"
+            cy="50%"
+            outerRadius={100}
+            innerRadius={50} // Define o formato de rosquinha
+            fill="#82ca9d"
+            label
+          >
+            {chartData.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+            ))}
+          </Pie>
           <Tooltip />
-          <Legend />
-          <Bar dataKey="valor" fill="#82ca9d" />
-        </BarChart>
+        </PieChart>
       </div>
     </div>
   );
