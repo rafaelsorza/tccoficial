@@ -10,16 +10,16 @@ const CaloriasDev: React.FC = () => {
   const [calories, setCalories] = useState<number>(0);
   const [fat, setFat] = useState<number>(0);
   const [protein, setProtein] = useState<number>(0);
+  const [portion, setPortion] = useState<number>(0); // Novo campo para gramas por porção
   const [foods, setFoods] = useState<any[]>([]);
   const [showFoodList, setShowFoodList] = useState(false);
 
-  // Estado para controlar o modal de edição
   const [editFood, setEditFood] = useState<any | null>(null);
 
   const handleAddNewFood = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (name && calories >= 0 && fat >= 0 && protein >= 0) {
-      const newFood = { name, calories, fat, protein };
+    if (name && calories >= 0 && fat >= 0 && protein >= 0 && portion > 0) {
+      const newFood = { name, calories, fat, protein, portion }; // Incluindo gramas por porção
       try {
         await addDoc(collection(db, 'foods'), newFood);
         alert('Alimento adicionado com sucesso!');
@@ -27,6 +27,7 @@ const CaloriasDev: React.FC = () => {
         setCalories(0);
         setFat(0);
         setProtein(0);
+        setPortion(0);
         setShowForm(false);
         fetchFoods();
       } catch (error) {
@@ -43,7 +44,7 @@ const CaloriasDev: React.FC = () => {
     const foodList = foodSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     setFoods(foodList);
   };
-// AVISOS
+
   const handleDeleteFood = async (foodId: string) => {
     try {
       const foodDoc = doc(db, 'foods', foodId);
@@ -60,7 +61,7 @@ const CaloriasDev: React.FC = () => {
   };
 
   const handleEditFoodSave = async () => {
-    if (editFood && editFood.name && editFood.calories >= 0 && editFood.fat >= 0 && editFood.protein >= 0) {
+    if (editFood && editFood.name && editFood.calories >= 0 && editFood.fat >= 0 && editFood.protein >= 0 && editFood.portion > 0) {
       try {
         const foodDoc = doc(db, 'foods', editFood.id);
         await updateDoc(foodDoc, {
@@ -68,6 +69,7 @@ const CaloriasDev: React.FC = () => {
           calories: editFood.calories,
           fat: editFood.fat,
           protein: editFood.protein,
+          portion: editFood.portion,
         });
         alert('Alimento atualizado com sucesso!');
         setEditFood(null);
@@ -117,17 +119,24 @@ const CaloriasDev: React.FC = () => {
                 <label htmlFor="protein">Proteína:</label>
                 <input type="number" id="protein" value={protein} onChange={(e) => setProtein(Number(e.target.value))} required />
               </div>
-              <div className='botslist'> 
-              <button type="submit">Adicionar Alimento</button>
-              <button type="button" onClick={() => setShowForm(false)}>Cancelar</button>
+              <div className="form-group">
+                <label htmlFor="portion">Gramas por porção:</label>
+                <input
+                  type="number"
+                  id="portion"
+                  value={portion}
+                  onChange={(e) => setPortion(Number(e.target.value))}
+                  required
+                />
+                <small>Quantas gramas tem 1 porção desse alimento?</small>
+              </div>
+              <div className="botslist">
+                <button type="submit">Adicionar Alimento</button>
+                <button type="button" onClick={() => setShowForm(false)}>Cancelar</button>
               </div>
             </form>
           </div>
         )}
-
-
-
-
 
         {showFoodList && (
           <div className="foods-list">
@@ -139,6 +148,7 @@ const CaloriasDev: React.FC = () => {
                   <p>Calorias: {food.calories}</p>
                   <p>Gordura: {food.fat}g</p>
                   <p>Proteína: {food.protein}g</p>
+                  <p>Gramas por porção: {food.portion}g</p>
                   <button onClick={() => handleEditFoodOpen(food)}>Editar</button>
                   <button onClick={() => handleDeleteFood(food.id)}>Excluir</button>
                 </div>
@@ -167,6 +177,14 @@ const CaloriasDev: React.FC = () => {
               <label>
                 Proteína:
                 <input type="number" value={editFood.protein} onChange={(e) => setEditFood({ ...editFood, protein: Number(e.target.value) })} />
+              </label>
+              <label>
+                Gramas por porção:
+                <input
+                  type="number"
+                  value={editFood.portion}
+                  onChange={(e) => setEditFood({ ...editFood, portion: Number(e.target.value) })}
+                />
               </label>
               <button onClick={handleEditFoodSave}>Salvar</button>
               <button onClick={() => setEditFood(null)}>Cancelar</button>
