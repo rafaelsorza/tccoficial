@@ -3,6 +3,7 @@ import { db } from '../../firebase-config'; // Configuração do Firebase
 import { collection, getDocs } from 'firebase/firestore'; // Funções do Firestore
 import { PieChart, Pie, Tooltip, Cell } from 'recharts'; // Biblioteca de gráficos
 import Sidebar from '../../components/sidebar/sidebar';
+import { getAuth, onAuthStateChanged } from 'firebase/auth'; // Importação do Auth do Firebase
 
 interface Food {
   id: string;
@@ -17,8 +18,24 @@ const CaloriasUsuario: React.FC = () => {
   const [foods, setFoods] = useState<Food[]>([]); // Lista de alimentos
   const [searchQuery, setSearchQuery] = useState(''); // Barra de pesquisa
   const [selectedFoods, setSelectedFoods] = useState<
-    { food: Food; grams: number }[]
-  >([]); // Alimentos consumidos e gramas
+    { food: Food; grams: number }[] // Alimentos consumidos e gramas
+  >([]);
+  const [userName, setUserName] = useState<string>(''); // Estado para armazenar o nome do usuário
+
+  const auth = getAuth();
+
+  // Buscar informações do usuário logado
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUserName(user.displayName || 'Usuário'); // Se o nome do usuário estiver disponível, use-o
+      } else {
+        setUserName('Usuário');
+      }
+    });
+
+    return () => unsubscribe(); // Limpa o listener quando o componente for desmontado
+  }, [auth]);
 
   // Buscar alimentos do Firestore
   useEffect(() => {
@@ -61,13 +78,13 @@ const CaloriasUsuario: React.FC = () => {
     );
   };
 
-  // Dados para o gráfico
+  // Dados para o gráfico (baseado nas gramas consumidas)
   const chartData = [
     {
       name: 'Calorias',
       value: selectedFoods.reduce(
         (acc, { food, grams }) =>
-          acc + (food.calories * grams) / food.portion,
+          acc + (food.calories * grams) / food.portion, // Ajuste para as porções
         0
       ),
     },
@@ -81,8 +98,7 @@ const CaloriasUsuario: React.FC = () => {
     {
       name: 'Proteínas',
       value: selectedFoods.reduce(
-        (acc, { food, grams }) =>
-          acc + (food.protein * grams) / food.portion,
+        (acc, { food, grams }) => acc + (food.protein * grams) / food.portion,
         0
       ),
     },
@@ -93,8 +109,17 @@ const CaloriasUsuario: React.FC = () => {
 
   return (
     <>
-      <div className="headerfod">Olá</div>
       <div className="main-page">
+        <div className="hello-card">
+          <div className="hello-text">
+            <h2>Oi {userName}</h2> {/* Exibe o nome do usuário aqui */}
+            <p>It's good to see you again.</p>
+          </div>
+          <div className="hello-image">
+            <img src="wave-illustration.png" alt="User waving" />
+          </div>
+        </div>
+
         <Sidebar />
         <div className="search-bar">
           <input
@@ -122,6 +147,7 @@ const CaloriasUsuario: React.FC = () => {
               ))
           )}
         </ul>
+
         <div className="selected-foods">
           <h2>Alimentos Consumidos</h2>
           {selectedFoods.length === 0 ? (
@@ -148,6 +174,7 @@ const CaloriasUsuario: React.FC = () => {
             </ul>
           )}
         </div>
+
         <div className="chart-container">
           <h2>Nutrição do Dia</h2>
           <PieChart width={600} height={300}>
