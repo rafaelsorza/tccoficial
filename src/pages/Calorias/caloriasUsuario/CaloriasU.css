@@ -1,0 +1,205 @@
+/* Estilo exclusivo para a página principal */
+.main-page {
+    display: flex;
+    flex-direction: column; /* Itens em coluna */
+    justify-content: center; /* Centraliza verticalmente */
+    gap: 20px; /* Espaçamento entre os elementos */
+    padding: 20px;
+    min-height: 100vh; /* Ocupa toda a altura da tela */
+    background-color: #f4f4f4; /* Cor de fundo suave */
+  }
+  
+  /* Barra de pesquisa */
+  .main-page .search-bar {
+    width: 100%;
+    max-width: 500px; /* Largura máxima */
+  }
+  
+  .main-page .search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  /* Lista de alimentos */
+  .main-page .food-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .main-page .food-item {
+    display: flex;
+    justify-content: space-between; /* Espaço entre o nome e o botão */
+    align-items: center;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+  }
+  
+  .main-page .food-item button {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .main-page .food-item button:hover {
+    background-color: #45A049;
+  }
+  
+  /* Gráfico */
+  .main-page .chart-container {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+  }
+  /* div do ola ususario */
+  .hello-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px; /* Tamanho máximo para telas maiores */
+    margin: 20px auto; /* Centralizado horizontalmente */
+    padding: 20px 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* Sombra suave */
+    position: absolute;
+    top: 20px; /* Fixa no topo com espaço de 20px */
+    left: 24%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta para o centro exato */
+  }
+  
+  .hello-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Espaço entre título e texto */
+  }
+  
+  .hello-text h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+    color: #333333;
+  }
+  
+  .hello-text p {
+    font-size: 1rem;
+    color: #777777;
+    margin: 0;
+  }
+  
+  .hello-image img {
+    width: 180px; /* Mantém o tamanho original */
+    height: auto;
+  }
+  
+  /* Adicionando responsividade */
+  @media (max-width: 768px) {
+    .hello-card {
+      flex-direction: column; /* Alinha verticalmente em telas menores */
+      text-align: center;
+      padding: 15px 20px;
+      top: 10px; /* Ajusta o espaço do topo para telas menores */
+    }
+  
+    .hello-image img {
+      width: 150px; /* Reduz tamanho da imagem em telas menores */
+      margin-top: 10px;
+    }
+  
+    .hello-text h2 {
+      font-size: 1.6rem;
+    }
+  
+    .hello-text p {
+      font-size: 0.9rem;
+    }
+  }
+  
+  
+  
+  .foods-list {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .food-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    text-align: center;
+  }
+  
+  .food-item p {
+    margin: 5px 0;
+  }
+  
+  .food-item button {
+    margin: 5px;
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .food-item button:hover {
+    background-color: #45a049;
+  }
+  
+  .food-item button:active {
+    background-color: #397d3b;
+  }
+  
+  .food-item button[type="button"] {
+    background-color: #f44336;
+  }
+  
+  .food-item button[type="button"]:hover {
+    background-color: #e53935;
+  }
+
+.barra{
+    margin-left: 300px;
+}
+.user {
+  background-color: white;
+  display: flex;
+  position: fixed; /* Fixado na posição */
+  top: 1%; /* Margem superior */
+  right: 0; /* Alinhado à direita */
+  height: 98%; /* Quase toda a altura */
+  width: 21%; /* Largura especificada */
+  border-radius: 5vh;
+  margin-right: 2vh; /* Pode ser removido ou ajustado */
+  flex-direction: column;
+  gap: 15vh;
+}
+.user h2{
+  align-items: center;
+  margin-left: 30%;
+}
+.chart-user {
+  position: relative;
+  left: 25%; /* Move para o centro da largura */
+  transform: translateX(-50%); /* Corrige para alinhar no centro exato horizontalmente */
+  width: 80%; /* Ajuste a largura */
+}

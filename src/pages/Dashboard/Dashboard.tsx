@@ -50,7 +50,7 @@ const Dashboard: React.FC = () => {
           <div className="left">
             <div className="headerr">
                <DisplayDate />
-               <h1>Oi {currentUser ? currentUser.displayName || currentUser.email : 'Usuário'}, Bem-vindo(a) de volta! Como você está?</h1> 
+               <h1>Oi {currentUser ? currentUser.displayName || currentUser.email : ' Usuário'}, Bem-vindo(a) de volta! Como você está?</h1> 
             </div>
           </div>
 

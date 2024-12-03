@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth'; // Funções de autenticação
-import CaloriasUsuario from './CaloriasUsuario'; // Componente para usuário
+import CaloriasUsuario from './caloriasUsuario/CaloriasUsuario'; // Componente para usuário
 import CaloriasDev from './CaloriasDev'; // Componente para desenvolvedor
 
 const Calorias: React.FC = () => {

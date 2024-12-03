@@ -9,7 +9,7 @@ import Recipes from './src/pages/Recipes/Recipes';
 import CaloriasDev from './src/pages/Calorias/CaloriasDev';
 import Ajuda from './src/pages/Help/Help';
 import Profile from './src/pages/Profile/Profile';
-import CaloriasUsuario from './src/pages/Calorias/CaloriasUsuario';
+import CaloriasUsuario from './src/pages/Calorias/caloriasUsuario/CaloriasUsuario'
 
 
 const AppRoutes: React.FC = () => {
