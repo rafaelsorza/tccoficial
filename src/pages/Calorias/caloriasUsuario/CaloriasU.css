@@ -1,24 +1,25 @@
-html, body {
-  height: 100%; /* Garante que o corpo ocupe a altura da viewport */
-  margin: 0; /* Remove margens padrão */
-  overflow: hidden; /* Desativa a rolagem */
+html,body {
+  height: 100%;/* Garante que o corpo ocupe a altura da viewport */
+  margin: 0;/* Remove margens padrão */
+  overflow: hidden;/* Desativa a rolagem */
 }
 
 /* Estilo exclusivo para a página principal */
 .main-page {
   display: flex;
-  flex-direction: column; /* Itens em coluna */
-  justify-content: center; /* Centraliza verticalmente */
-  gap: 20px; /* Espaçamento entre os elementos */
+  flex-direction: column;/* Itens em coluna */
+  justify-content: flex-start;/* Centraliza verticalmente */
+  gap: 20px;/* Espaçamento entre os elementos */
   padding: 20px;
-  min-height: 100vh; /* Ocupa toda a altura da tela */
-  background-color: #f4f4f4; /* Cor de fundo suave */
+  min-height: 100vh;/* Ocupa toda a altura da tela */
+  background-color: #f4f4f4;/* Cor de fundo suave */
 }
 
 /* Barra de pesquisa */
 .main-page .search-bar {
   width: 100%;
-  max-width: 500px; /* Largura máxima */
+  max-width: 600px;
+  /* Largura máxima */
 }
 
 
@@ -38,23 +39,51 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  max-width: 68%; /* Tamanho máximo para telas maiores */
-  margin: 20px auto; /* Centralizado horizontalmente */
-  padding: 5px 30px; /* Espaçamento interno */
-  background-color: #ffffff;
+  width: 68%;
+  max-width: 71%; /* Igual à largura da .barra */
+  margin: 20px auto;
+  padding: 5px 2vw;
+  background-color: #7dcd9a;
   border-radius: 15px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* Sombra suave */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
   position: absolute;
-  top: 1px; /* Fixa no topo com espaço de 20px */
-  left: 88vh; /* Centraliza horizontalmente */
-  transform: translateX(-50%); /* Ajusta para o centro exato */
+  top: 1px; /* Mantém no topo */
+  left: 42%; /* Centraliza horizontalmente */
+  transform: translateX(-50%);
+}
+
+/* Responsividade para telas médias (tablets, 768px) */
+@media (max-width: 1024px) {
+  .hello-card {
+    max-width: 80%; /* Ajusta largura para telas menores */
+    padding: 10px 20px; /* Reduz o padding */
+  }
+}
+
+/* Responsividade para telas pequenas (smartphones, 480px) */
+@media (max-width: 768px) {
+  .hello-card {
+    flex-direction: column; /* Ajusta layout para pilha vertical */
+    max-width: 90%; /* Ocupa quase toda a largura da tela */
+    text-align: center; /* Alinha o texto centralmente */
+    padding: 15px 10px;
+  }
+}
+
+/* Responsividade para telas muito pequenas (320px) */
+@media (max-width: 480px) {
+  .hello-card {
+    max-width: 95%; /* Ajusta largura para telas muito pequenas */
+    padding: 10px 8px; /* Menor espaçamento */
+    border-radius: 10px; /* Menos arredondado */
+  }
 }
 
 .hello-text {
   display: flex;
   flex-direction: column;
-  gap: 8px; /* Espaço entre título e texto */
+  gap: 8px;
+  /* Espaço entre título e texto */
 }
 
 .hello-text h2 {
@@ -71,21 +100,25 @@ html, body {
 }
 
 .hello-image img {
-  width: 220px; /* Mantém o tamanho original */
+  width: 220px;
+  /* Mantém o tamanho original */
   height: auto;
 }
 
 /* Adicionando responsividade */
 @media (max-width: 768px) {
   .hello-card {
-    flex-direction: column; /* Alinha verticalmente em telas menores */
+    flex-direction: column;
+    /* Alinha verticalmente em telas menores */
     text-align: center;
     padding: 15px 20px;
-    top: 10px; /* Ajusta o espaço do topo para telas menores */
+    top: 10px;
+    /* Ajusta o espaço do topo para telas menores */
   }
 
   .hello-image img {
-    width: 150px; /* Reduz tamanho da imagem em telas menores */
+    width: 150px;
+    /* Reduz tamanho da imagem em telas menores */
     margin-top: 10px;
   }
 
@@ -101,25 +134,57 @@ html, body {
 
 /* Barra de pesquisa */
 .barra {
-  position: absolute; /* Ajuste para sobreposição e alinhamento */
-  top: 260px; /* Mesma posição vertical que .hello-card */
-  left: 88vh; /* Centralizado horizontalmente */
-  transform: translateX(-50%); /* Ajuste para o centro exato */
-  width: 71%; /* Mesma largura que .hello-card */
-  height: 60vh; /* Mesma altura que .hello-card */
+  position: absolute;
+  top: 260px; /* Mantido para telas maiores */
+  left: 42%; /* Centralizado horizontalmente */
+  transform: translateX(-50%);
+  width: 68%; /* Largura padrão */
+  height: 60vh;
   background-color: white;
   border-radius: 15px;
   display: flex;
-  flex-direction: column; /* Organização dos itens em coluna */
-  align-items: center; /* Alinha os itens horizontalmente no centro */
-  justify-content: flex-start; /* Alinha os itens no topo */
-  padding-top: 10vh; /* Espaçamento superior para ajustar os itens */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* Sombra suave */
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5vh 2vw; /* Ajuste interno responsivo */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsividade para telas médias (tablets, 768px) */
+@media (max-width: 1024px) {
+  .barra {
+    top: 200px; /* Ajuste vertical */
+    width: 80%; /* Largura maior para ocupar mais espaço */
+    height: auto; /* Altura dinâmica para evitar cortes */
+    padding-top: 5vh; /* Ajuste no espaçamento interno */
+  }
+}
+
+/* Responsividade para telas pequenas (smartphones, 480px) */
+@media (max-width: 768px) {
+  .barra {
+    top: 150px; /* Reduzido para menor altura da tela */
+    width: 90%; /* Quase toda a largura da tela */
+    height: auto; /* Ajuste automático para conteúdo */
+    padding: 3vh 2vw; /* Menor espaçamento */
+    border-radius: 10px; /* Bordas menos arredondadas */
+  }
+}
+
+/* Responsividade para telas muito pequenas (320px) */
+@media (max-width: 480px) {
+  .barra {
+    top: 100px; /* Ajuste para telas bem pequenas */
+    width: 95%; /* Quase toda a largura */
+    padding: 2vh 1vw;
+    border-radius: 8px; /* Ajuste de bordas */
+  }
 }
 .barra p {
   font-size: 2cap;
   margin-left: 5px;
 }
+
 .search-bar input {
   width: 94%;
   padding: 10px;
@@ -128,27 +193,27 @@ html, body {
   font-size: 1rem;
   position: absolute;
   left: 10px;
-  top:20px;
+  top: 20px;
 }
 
 /* Lista de alimentos */
 .food-list {
-  position: absolute; /* Ajuste para sobreposição e alinhamento */
-  top: 80px; /* Mesma posição vertical que .hello-card */
-  left: 1vh; /* Centralizado horizontalmente */
+  position: absolute;/* Ajuste para sobreposição e alinhamento */
+  top: 80px;/* Mesma posição vertical que .hello-card */
+  left: 1vh;/* Centralizado horizontalmente */
   list-style: none;
   padding: 0;
   margin: 0;
   width: 100%;
-  max-width:98%;
+  max-width: 98%;
   max-height: 58vh; /* Altura máxima da lista */
-  overflow-y: auto; /* Ativa rolagem vertical */
-  list-style-type: none; /* Remove os marcadores padrão */
+  overflow-y: auto;/* Ativa rolagem vertical */
+  list-style-type: none;/* Remove os marcadores padrão */
 }
 
 .food-item {
   display: flex;
-  justify-content: space-between; /* Espaço entre o nome e o botão */
+  justify-content: space-between;/* Espaço entre o nome e o botão */
   align-items: center;
   background-color: #f9f9f9;
   border: 1px solid #ddd;
@@ -156,7 +221,9 @@ html, body {
   padding: 10px 15px;
   margin-bottom: 10px;
 }
+/*
 
+*/
 .food-item button {
   padding: 8px 15px;
   background-color: #4caf50;
@@ -171,6 +238,7 @@ html, body {
 .food-item button:hover {
   background-color: #45a049;
 }
+
 .food-item p {
   margin: 5px 0;
 }
@@ -191,32 +259,38 @@ html, body {
 /* Parte do usuario */
 
 .user {
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* Sombra suave */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);/* Sombra suave */
   background-color: white;
   display: flex;
-  position: fixed; /* Fixado na posição */
-  top: 1%; /* Margem superior */
-  right: 0; /* Alinhado à direita */
-  height: 98%; /* Quase toda a altura */
-  width: 21%; /* Largura especificada */
+  top: 1%;/* Margem superior */
+  right: 0;/* Alinhado à direita */
+  height: auto;
+  width: 21%;/* Largura especificada */
   border-radius: 5vh;
-  padding:0px;
+  padding: 0px;
+  margin-top: 10px;
+  position: relative; 
+  margin-left: 80%;
+  max-width: 300px;
 }
 
 .user h1 {
   align-items: center;
   margin-left: 25%;
 }
-
+.user p {
+  text-align: center;
+}
 .chart-user {
   position: relative;
   flex-direction: column;
-  left: 65%; /* Move para o centro da largura */
+  left: 65%;/* Move para o centro da largura */
   transform: translateX(-50%); /* Corrige para alinhar no centro exato horizontalmente */
   display: flex;
-width:700px ;
-height: auto;
-top:px;
+  width: 700px;
+  height: auto;
+  top: px;
+  margin: 1px auto;/* Espaçamento automático */
 }
 
 .user h2 {
@@ -231,24 +305,33 @@ top:px;
 
 .chart-legend {
   display: flex;
-  justify-content: center; /* Centraliza a legenda horizontalmente */
-  flex-direction: column; /* Alinha os itens horizontalmente */
-  gap: 20px; /* Espaçamento entre os quadradinhos */
+  justify-content: center;/* Centraliza a legenda horizontalmente */
+  flex-direction: column;/* Alinha os itens horizontalmente */
+  gap: 20px;/* Espaçamento entre os quadradinhos */
 }
 
 .legend-item {
-  display: inline-flex !important; /* Certifica que os itens estão lado a lado */
-  align-items: center !important; /* Alinha verticalmente no centro */
-  gap: 10px; /* Espaçamento entre o quadrado e o texto */
-  margin: 0; /* Remove margens que possam estar deslocando */
-  padding: 0; /* Remove padding adicional */
-  white-space: nowrap !important; /* Impede que o texto quebre em linhas */ 
+  display: inline-flex !important;
+  /* Certifica que os itens estão lado a lado */
+  align-items: center !important;
+  /* Alinha verticalmente no centro */
+  gap: 10px;
+  /* Espaçamento entre o quadrado e o texto */
+  margin: 0;
+  /* Remove margens que possam estar deslocando */
+  padding: 0;
+  /* Remove padding adicional */
+  white-space: nowrap !important;
+  /* Impede que o texto quebre em linhas */
   flex-direction: row !important;
 }
+
 .color-box {
-  width: 20px; /* Tamanho do quadrado */
+  width: 20px;
+  /* Tamanho do quadrado */
   height: 20px;
-  border-radius: 4px; /* Bordas arredondadas (opcional) */
+  border-radius: 4px;
+  /* Bordas arredondadas (opcional) */
   flex-direction: row !important;
   display: inline-flex !important;
 }
@@ -256,9 +339,10 @@ top:px;
 .selected-foods p {
   left: 2vh;
 }
-.selected-foods{
+
+.selected-foods {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  top:0px;
+  top: 0px;
 }
