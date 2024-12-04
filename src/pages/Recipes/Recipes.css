@@ -1,6 +1,6 @@
 .container-dash {
   display: flex;
-  background-color: rgb(210, 205, 214);
+  background-color: #f4f4f4; /* Cor de fundo suave */
   position: absolute;
   height: 100%;
   width: 100%;

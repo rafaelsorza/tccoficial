@@ -118,8 +118,10 @@ const CaloriasUsuario: React.FC = () => {
 
 
       <div className="user">
-        <h2>Nutrição do Dia</h2>
+
+
         <div className="chart-user">
+          <h1>Nutrição do Dia</h1>
           <PieChart width={600} height={300}>
             <Pie
               data={chartData}
@@ -137,9 +139,42 @@ const CaloriasUsuario: React.FC = () => {
             </Pie>
             <Tooltip />
           </PieChart>
-        </div>
-      </div>
 
+        </div>
+        <div className="chart-legend">
+          {chartData.map((entry, index) => (
+            <div key={index} className="legend-item">
+              <div
+                className="color-box"
+                style={{ backgroundColor: COLORS[index % COLORS.length] }}
+              ></div>
+              <span>{entry.name} {entry.value.toFixed(2)}</span>
+            </div>
+          ))}<div className="selected-foods">
+            <h2>Alimentos Consumidos</h2>
+            {selectedFoods.length === 0 ? (
+              <p>Nenhum alimento consumido.</p>
+            ) : (
+              <ul>
+                {selectedFoods.map(({ food, grams }) => (
+                  <li key={food.id}>
+                    <div className="selected-food">
+                      <span>
+                        {food.name} - {grams}g consumidos
+                      </span>
+                      <button onClick={() => handleRemoveFood(food.id)}>Excluir</button>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
+        {/* Adicionando os quadradinhos abaixo do gráfico */}
+
+
+
+      </div>
 
 
       <Sidebar />
@@ -176,25 +211,7 @@ const CaloriasUsuario: React.FC = () => {
 
 
 
-      <div className="selected-foods">
-        <h2>Alimentos Consumidos</h2>
-        {selectedFoods.length === 0 ? (
-          <p>Nenhum alimento consumido.</p>
-        ) : (
-          <ul>
-            {selectedFoods.map(({ food, grams }) => (
-              <li key={food.id}>
-                <div className="selected-food">
-                  <span>
-                    {food.name} - {grams}g consumidos
-                  </span>
-                  <button onClick={() => handleRemoveFood(food.id)}>Excluir</button>
-                </div>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
+
 
 
 
