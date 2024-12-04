@@ -6,7 +6,7 @@ interface Recipe {
   image: string;
   description: string;
   ingredients: string[];
-  instructions: string;
+  instructions: string[];
 }
 
 interface RecipeDetailsProps {
@@ -28,8 +28,14 @@ const RecipeDetails: React.FC<RecipeDetailsProps> = ({ recipe }) => {
           <li key={index}>{ingredient}</li>
         ))}
       </ul>
-      <h3>Como preparar</h3>
-      <p>{recipe.instructions}</p>
+      <p className='comopreparar'>Como preparar</p>
+
+  {/* Lista de instruções */}
+  <ol>
+    {recipe.instructions.map((step, index) => (
+      <li key={index}>{step}</li>
+    ))}
+  </ol>
     </div>
   );
 };

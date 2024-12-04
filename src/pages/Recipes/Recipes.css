@@ -1,104 +1,135 @@
+/* Estilo Geral */
 .container-dash {
   display: flex;
-  background-color: #f4f4f4; /* Cor de fundo suave */
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  align-items: center;
   flex-direction: column;
+  background-color: #f4f4f4;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* Impede o scroll externo */
 }
-    
-  .menu-recipes {
-    position: absolute;
-    top: 0;
-    left: 8%;
-    width: 100%;
-    display: flex;
-    justify-content: left;
-    border: 0;
-    z-index: 1000;
-    margin-top: 1%;
-  }
-  
-  .menu-recipes button {
-    padding: 10px 20px;
-    background-color: white;
-    border-radius: 10vh;
-    border: 0;
-    cursor: pointer;
-    margin: 0 10px;
-    font-weight: bold;
-     align-items: center;
-    gap: 10px;
-    display: flex;
-  }
-  
-  .menu-recipes button.active {
-    background-color: #35ad7f;
-    color: #ffff;
-  }
-  
-  .cards-section {
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2vh;
-    margin-left: 10vh;
+/* Header */
+.hea {
+  background-color: #35ad7f;
+  width: 64%;
+  height: 20%;
+  margin-top: 2vh;
+  margin-bottom: 6vh;
+  left: 13vh;
+  border-radius: 3vh;
+  display: flex;
+  flex-direction: column;
+  padding-left: 3vh;
+  position: fixed;
+  z-index: 1000; /* Mantém o header acima de outros elementos */
+}
 
+.titlereceita,
+.subtitlereceita {
+  color: white;
+}
 
+/* Menu de receitas */
+.menu-recipes {
+  position: fixed;
+  top: 23%; /* Logo abaixo do header */
+  left: 13vh;
+  display: flex;
+  gap: 10px;
+  width: 64%;
+  background-color: #f4f4f4;
+  padding: 10px;
+  z-index: 999;
+}
 
-  }
-  
-  .card-style{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: rgb(255, 255, 255);
-    border-radius: 5vh;
-    height: 35vh;
-    width: 25vh;
-  }
-  
-  .card-image{
-    margin: auto;
-    height: 10vh;
-    width: 10vh;
-  }
-  
-  .title-recipe{
-    font-weight: bold;
-    font-size: 2vh;
-    color: rgb(0, 0, 0);
-    margin-top: 0;
-  }
-  
-  .kcal {
-  color: #35ad7f;
-  margin-top: 0;
-  font-size: 2vh;
-  }
-
-  
-  
-
-.detalhes{
+.menu-recipes button {
+  padding: 10px 20px;
+  background-color: white;
+  border-radius: 10vh;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
   display: flex;
   align-items: center;
-  background-color: azure;
-  justify-content: center;
-  height: 97%;
-  width: 50vh;
-  margin-top: 2vh;
-  border-radius: 5vh;
-  margin-bottom: 2vh;
-  margin-right: 2vh;
- 
-
+  gap: 10px;
 }
 
-.details-style{
+.menu-recipes button.active {
+  background-color: #35ad7f;
+  color: white;
+}
+
+/* Cards */
+.cards-section {
+  position: fixed;
+  top: 30%; /* Logo abaixo do menu */
+  left: 12vh;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3vh;
+  height: 60%;
+  width: calc(100vw - 12vh);
+  overflow-y: auto; /* Permite rolagem apenas dentro dos cards */
+  padding: 10px;
+  background-color: #f4f4f4;
+}
+
+.card-style {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 5vh;
+  height: 60vh;
+  width: 25vh;
+  text-align: center;
+}
+
+.card-image {
+  height: 20vh;
+  width: 20vh;
+  border-radius: 10vh;
+  object-fit: cover;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+.title-recipe {
+  font-weight: bold;
+  font-size: 2vh;
+  color: black;
+  margin-top: 0;
+}
+
+.kcal {
+  color: #35ad7f;
+  font-size: 2vh;
+  margin-top: 0;
+}
+
+/* Detalhes */
+.detalhes {
+  position: fixed;
+  top: 0; /* Alinhado ao topo */
+  right: 0; /* Encostado no lado direito */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: azure;
+  height: 97vh; /* Ocupa toda a altura da tela */
+  width: 40vh; /* Largura fixa */
+  border-radius: 0 0 0 5vh; /* Arredondamento apenas no canto inferior esquerdo */
+  padding: 10px;
+  overflow-y: auto; /* Permite rolagem interna */
+}
+
+.comopreparar {
+  font-size: 4vh;
+  color: black;
+  font-weight: bold;
+}
+
+.details-style {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -109,16 +140,10 @@
   margin-bottom: 25vh;
 }
 
-.details-image{
+.details-image {
   width: 25vh;
+  margin-top: 20vh;
   height: 25vh;
-
-}
-.con{
-  display: flex;
-  height: 100%;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
+  border-radius: 20vh;
+  object-fit: cover;
 }

@@ -8,7 +8,7 @@ interface Recipe {
   image: string;
   description: string;
   ingredients: string[];
-  instructions: string;
+  instructions: string[];
 }
 
 interface RecipeCardProps {
