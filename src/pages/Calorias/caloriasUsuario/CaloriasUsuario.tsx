@@ -18,7 +18,11 @@ interface Food {
 const CaloriasUsuario: React.FC = () => {
   const [foods, setFoods] = useState<Food[]>([]); // Lista de alimentos
   const [searchQuery, setSearchQuery] = useState(''); // Barra de pesquisa
-  const [selectedFoods, setSelectedFoods] = useState<{ food: Food; grams: number }[]>([]); // Alimentos consumidos e gramas
+  const [selectedFoods, setSelectedFoods] = useState<{ food: Food; grams: number }[]>(() => {
+    // Carregar alimentos selecionados do localStorage
+    const savedData = localStorage.getItem('selectedFoods');
+    return savedData ? JSON.parse(savedData) : [];
+  }); // Alimentos consumidos e gramas
   const [userName, setUserName] = useState<string>(''); // Nome do usuário
 
   const auth = getAuth();
@@ -49,6 +53,11 @@ const CaloriasUsuario: React.FC = () => {
 
     fetchFoods();
   }, []);
+
+  // Salvar alimentos selecionados no localStorage sempre que forem alterados
+  useEffect(() => {
+    localStorage.setItem('selectedFoods', JSON.stringify(selectedFoods));
+  }, [selectedFoods]);
 
   // Adicionar alimento ao dia
   const handleAddFood = (food: Food) => {
@@ -100,10 +109,6 @@ const CaloriasUsuario: React.FC = () => {
 
   return (
     <div className="main-page">
-
-
-
-
       <div className="hello-card">
         <div className="hello-text">
           <h2>Oi {userName}</h2>
@@ -114,12 +119,7 @@ const CaloriasUsuario: React.FC = () => {
         </div>
       </div>
 
-
-
-
       <div className="user">
-
-
         <div className="chart-user">
           <h1>Nutrição do Dia</h1>
           <PieChart width={600} height={300}>
@@ -139,18 +139,17 @@ const CaloriasUsuario: React.FC = () => {
             </Pie>
             <Tooltip />
           </PieChart>
-
         </div>
         <div className="chart-legend">
           {chartData.map((entry, index) => (
             <div key={index} className="legend-item">
-              <div
-                className="color-box"
-                style={{ backgroundColor: COLORS[index % COLORS.length] }}
-              ></div>
-              <span>{entry.name} {entry.value.toFixed(2)}</span>
+              <div className="color-box" style={{ backgroundColor: COLORS[index % COLORS.length] }}></div>
+              <span>
+                {entry.name}: {entry.value.toFixed(2)}
+              </span>
             </div>
-          ))}<div className="selected-foods">
+          ))}
+          <div className="selected-foods">
             <h2>Alimentos Consumidos</h2>
             {selectedFoods.length === 0 ? (
               <p>Nenhum alimento consumido.</p>
@@ -170,15 +169,9 @@ const CaloriasUsuario: React.FC = () => {
             )}
           </div>
         </div>
-        {/* Adicionando os quadradinhos abaixo do gráfico */}
-
-
-
       </div>
 
-
       <Sidebar />
-
 
       <div className="barra">
         <div className="search-bar">
@@ -208,14 +201,6 @@ const CaloriasUsuario: React.FC = () => {
           )}
         </ul>
       </div>
-
-
-
-
-
-
-
-
     </div>
   );
 };

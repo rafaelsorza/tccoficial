@@ -7,6 +7,7 @@ const NavUser: React.FC = () => {
       <div className="nav-user">
         <div className="itens">
             <UserButton/>  
+            <h1>oiiii</h1>
         </div>
       </div>
 

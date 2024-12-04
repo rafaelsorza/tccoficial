@@ -237,18 +237,20 @@ top:px;
 }
 
 .legend-item {
-  display: inline-flex; /* Certifica que os itens estão lado a lado */
-  align-items: center; /* Alinha verticalmente no centro */
+  display: inline-flex !important; /* Certifica que os itens estão lado a lado */
+  align-items: center !important; /* Alinha verticalmente no centro */
   gap: 10px; /* Espaçamento entre o quadrado e o texto */
   margin: 0; /* Remove margens que possam estar deslocando */
   padding: 0; /* Remove padding adicional */
-  white-space: nowrap; /* Impede que o texto quebre em linhas */ 
-  flex-direction: row;
+  white-space: nowrap !important; /* Impede que o texto quebre em linhas */ 
+  flex-direction: row !important;
 }
 .color-box {
   width: 20px; /* Tamanho do quadrado */
   height: 20px;
   border-radius: 4px; /* Bordas arredondadas (opcional) */
+  flex-direction: row !important;
+  display: inline-flex !important;
 }
 
 .selected-foods p {
